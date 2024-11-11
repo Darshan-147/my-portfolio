@@ -15,6 +15,13 @@ const Contact = () => {
       </motion.h2>
       <div className="flex flex-col gap-2 justify-center text-center tracking-tighter">
         <motion.p
+          initial={{ x: -200, opacity: 0 }}
+          whileInView={{ x: 0, opacity: 1 }}
+          transition={{ duration: 1, delay: 0 }}
+        >
+          {CONTACT.phone_number}
+        </motion.p>
+        <motion.p
           initial={{ x: -200, y: -200, opacity: 0 }}
           whileInView={{ x: 0, y: 0, opacity: 1 }}
           transition={{ duration: 1, delay: 1 }}

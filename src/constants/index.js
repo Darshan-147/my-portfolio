@@ -20,7 +20,7 @@ export const EXPERIENCES = [
     role: "Beta Tester",
     company: "Infiheal",
     description: `Worked here as a Beta Tester, testing the "Healo" chatbot. Found 5+ features that lacked functionalities and provided constructive feedback to enhance product functionalities, suggestions and bugs for chatbot qualities.`,
-    technologies: ["My Brain"],
+    technologies: ["Brainstorming"],
   },
   {
     year: "March 2024 – April 2024",
@@ -43,7 +43,7 @@ export const PROJECTS = [
     title: "Darshan's Portfolio",
     image: myPortfolio,
     description:
-      "A personal portfolio website showcasing projects, skills, and contact information.",
+      "A personal portfolio website showcasing my projects, skills, and contact information. Recursion exists :)",
     technologies: ["HTML", "CSS", "React", "Tailwind"],
   },
   {
@@ -63,6 +63,7 @@ export const PROJECTS = [
 ];
 
 export const CONTACT = {
+  phone_number: "+91 81607 46102",
   email1: "darshaner2019@gmail.com",
   email2: "darshan.sce21@sot.pdpu.ac.in"
 };
