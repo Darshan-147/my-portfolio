@@ -6,13 +6,19 @@ import { motion } from "framer-motion";
 const About = () => {
   return (
     <div className="border-b border-neutral-900 pb-4">
-      <h2 className="my-20 text-center text-4xl">About Me</h2>
+      <motion.h2
+        initial={{ y: -100, opacity: 0 }}
+        whileInView={{ y: 0, opacity: 1 }}
+        transition={{ duration: 1 }}
+        className="my-20 text-center text-4xl"
+      >
+        About Me
+      </motion.h2>
       <div className="flex flex-wrap justify-center items-center">
         <motion.div
           initial={{ x: -100, opacity: 0 }}
           whileInView={{ x: 0, opacity: 1 }}
           transition={{ duration: 1 }}
-          viewport={{ once: true }}
           className="w-64 lg:w-1/3 lg:p-8"
         >
           <div className="flex items-center justify-center">
@@ -23,7 +29,6 @@ const About = () => {
           initial={{ x: 100, opacity: 0 }}
           whileInView={{ x: 0, opacity: 1 }}
           transition={{ duration: 1 }}
-          viewport={{ once: true }}
           className="w-full lg:w-1/2"
         >
           <div className="flex justify-center lg:justify-start">
