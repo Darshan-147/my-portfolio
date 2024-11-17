@@ -42,8 +42,8 @@ const Hero = () => {
             </motion.p>
           </div>
         </div>
-        <div className="w-64 lg:w-1/3 lg:ml-40 lg:p-8">
-          <div className="flex justify-center items-center">
+        <div className="flex items-center w-64 lg:w-1/3 lg:ml-40 lg:p-4">
+          <div>
             <motion.img
               initial={{ x: 100, opacity: 0 }}
               whileInView={{
@@ -53,6 +53,7 @@ const Hero = () => {
               }}
               src={profilePic}
               alt="Darshan Soni"
+              className="rounded-2xl"
             />
           </div>
         </div>
