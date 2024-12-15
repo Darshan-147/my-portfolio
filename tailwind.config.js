@@ -8,6 +8,12 @@ export default {
     "hover:border-gray-400",
     "hover:border-cyan-200",
     "hover:border-green-300",
+    "text-orange-300",
+    "text-blue-300",
+    "text-green-400",
+    "text-gray-400",
+    "text-cyan-200",
+    "text-green-300"
   ],
   theme: {
     extend: {},
