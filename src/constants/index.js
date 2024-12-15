@@ -1,11 +1,51 @@
-import scheduleX from '../assets/projects/scheduleX.png'
-import ParkIT from '../assets/projects/ParkIT.png'
-import myPortfolio from '../assets/projects/myPortfolio.png'
-import Xpense from '../assets/projects/Xpense.png'
+import scheduleX from "../assets/projects/scheduleX.png";
+import ParkIT from "../assets/projects/ParkIT.png";
+import myPortfolio from "../assets/projects/myPortfolio.png";
+import Xpense from "../assets/projects/Xpense.png";
 
 export const HERO_CONTENT = `I am a passionate full stack developer with a knack for crafting robust and scalable web applications. I have honed my skills in front-end technologies like React, HTML and CSS as well as back-end technologies like Node.js, MySQL and MongoDB. My goal is to leverage my expertise to create innovative solutions that drive business growth and deliver exceptional user experiences.`;
 
 export const ABOUT_TEXT = `I am a dedicated and versatile full stack developer with a passion for creating efficient and user-friendly web applications. I have worked with a variety of technologies, including React, Node.js, MySQL, and MongoDB. My journey in web development began with a deep curiosity for how things work, and it has evolved into a career where I continuously strive to learn and adapt to new challenges. I thrive in collaborative environments and enjoy solving complex problems to deliver high-quality solutions. Outside of coding, I enjoy staying active, exploring new technologies, and contributing to open-source projects.`;
+
+export const TECHNOLOGIES = [
+  {
+    id: "html",
+    name: "HTML",
+    color: "text-orange-500",
+    hoverColor: "orange-300",
+  },
+  {
+    id: "css",
+    name: "CSS",
+    color: "text-blue-600",
+    hoverColor: "blue-300",
+  },
+  {
+    id: "mongodb",
+    name: "MongoDB",
+    color: "text-green-700",
+    hoverColor: "green-400",
+  },
+  {
+    id: "express",
+    name: "Express",
+    color: "text-gray-500",
+    hoverColor: "gray-400",
+  },
+  {
+    id: "react",
+    name: "React",
+    color: "text-cyan-400",
+    hoverColor: "cyan-200",
+  },
+  {
+    id: "node",
+    name: "Node.js",
+    color: "text-green-500",
+    hoverColor: "green-300",
+  },
+];
+
 
 export const EXPERIENCES = [
   {
@@ -50,7 +90,7 @@ export const PROJECTS = [
     title: "ParkIT - Smart Parking Management System",
     image: ParkIT,
     description:
-    "Implemented parking management system using parking lot matrix. The matrix provides description about which slots are free and which ones are occupied.",
+      "Implemented parking management system using parking lot matrix. The matrix provides description about which slots are free and which ones are occupied.",
     technologies: ["HTML", "CSS", "JavaScript"],
   },
   {
@@ -65,5 +105,5 @@ export const PROJECTS = [
 export const CONTACT = {
   phone_number: "+91 81607 46102",
   email1: "darshaner2019@gmail.com",
-  email2: "darshan.sce21@sot.pdpu.ac.in"
+  email2: "darshan.sce21@sot.pdpu.ac.in",
 };

@@ -11,14 +11,14 @@ const animation1 = (delay) => ({
 const Hero = () => {
   return (
     <div className="border-b border-neutral-900 pb-4 lg:mb-35">
-      <div className="flex flex-wrap justify-center">
+      <div className="flex flex-wrap justify-between">
         <div className="w-full lg:w-1/2">
           <div className="flex flex-col items-center lg:items-start">
             <motion.h1
               variants={animation1(0)}
               initial="hidden"
               whileInView="visible"
-              className="pb-16 text-6xl font-thin tracking-tight lg:mt-16 lg:text-7xl"
+              className="pb-16 text-6xl font-extralight tracking-tight lg:mt-16 lg:text-7xl"
             >
               Darshan Soni
             </motion.h1>
@@ -42,7 +42,7 @@ const Hero = () => {
             </motion.p>
           </div>
         </div>
-        <div className="flex items-center w-64 lg:w-1/3 lg:ml-40 lg:p-4">
+        <div className="flex items-center w-64 lg:w-1/3 lg:ml-32 lg:p-4">
           <div>
             <motion.img
               initial={{ x: 100, opacity: 0 }}

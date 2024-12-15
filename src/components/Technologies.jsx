@@ -1,8 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
+import { motion } from "framer-motion";
 import { FaNodeJs } from "react-icons/fa";
 import { RiReactjsLine } from "react-icons/ri";
 import { SiCss3, SiExpress, SiHtml5, SiMongodb } from "react-icons/si";
-import { motion } from "framer-motion";
+import { TECHNOLOGIES } from "../constants";
+
+const iconComponents = {
+  html: <SiHtml5 />,
+  css: <SiCss3 />,
+  mongodb: <SiMongodb />,
+  express: <SiExpress />,
+  react: <RiReactjsLine />,
+  node: <FaNodeJs />,
+};
 
 const iconVariants = (duration) => ({
   initial: { y: -10 },
@@ -18,6 +28,8 @@ const iconVariants = (duration) => ({
 });
 
 const Technologies = () => {
+  const [hoveredTech, setHoveredTech] = useState(null);
+
   return (
     <div className="border-b border-neutral-800 pb-24">
       <motion.h2
@@ -34,54 +46,28 @@ const Technologies = () => {
         transition={{ duration: 1.5 }}
         className="flex flex-wrap items-center justify-center gap-4"
       >
-        <motion.div
-          variants={iconVariants(2)}
-          initial="initial"
-          animate="animate"
-          className="rounded-2xl border-4 border-neutral-800 p-4"
-        >
-          <SiHtml5 className="text-7xl text-orange-500" />
-        </motion.div>
-        <motion.div
-          variants={iconVariants(2.5)}
-          initial="initial"
-          animate="animate"
-          className="rounded-2xl border-4 border-neutral-800 p-4"
-        >
-          <SiCss3 className="text-7xl text-blue-600" />
-        </motion.div>
-        <motion.div
-          variants={iconVariants(4)}
-          initial="initial"
-          animate="animate"
-          className="rounded-2xl border-4 border-neutral-800 p-4"
-        >
-          <SiMongodb className="text-7xl text-green-700" />
-        </motion.div>
-        <motion.div
-          variants={iconVariants(3)}
-          initial="initial"
-          animate="animate"
-          className="rounded-2xl border-4 border-neutral-800 p-4"
-        >
-          <SiExpress className="text-7xl text-gray-500" />
-        </motion.div>
-        <motion.div
-          variants={iconVariants(1.5)}
-          initial="initial"
-          animate="animate"
-          className="rounded-2xl border-4 border-neutral-800 p-4"
-        >
-          <RiReactjsLine className="text-7xl text-cyan-400" />
-        </motion.div>
-        <motion.div
-          variants={iconVariants(3.5)}
-          initial="initial"
-          animate="animate"
-          className="rounded-2xl border-4 border-neutral-800 p-4"
-        >
-          <FaNodeJs className="text-7xl text-green-500" />
-        </motion.div>
+        {TECHNOLOGIES.map((tech, index) => (
+          <motion.div
+            key={tech.id}
+            variants={iconVariants(1.5 + index * 0.5)}
+            initial="initial"
+            animate="animate"
+            className={`relative rounded-2xl border-4 border-neutral-800 p-4 hover:border-${tech.hoverColor}`}
+            onMouseEnter={() => setHoveredTech(tech.id)}
+            onMouseLeave={() => setHoveredTech(null)}
+          >
+            <div className={`text-7xl ${tech.color}`}>
+              {iconComponents[tech.id]}
+            </div>
+            {hoveredTech === tech.id && (
+              <span
+                className={`absolute top-full mt-2 pe-6 w-full text-center text-lg text-${tech.hoverColor}`}
+              >
+                {tech.name}
+              </span>
+            )}
+          </motion.div>
+        ))}
       </motion.div>
     </div>
   );

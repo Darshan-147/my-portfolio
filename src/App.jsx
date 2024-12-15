@@ -21,6 +21,7 @@ const App = () => {
         <Experience />
         <Projects />
         <Contact />
+        <div className="text-center mt-16 mb-12 italic">Made with 💖 by Darshan</div>
       </div>
     </div>
   );
