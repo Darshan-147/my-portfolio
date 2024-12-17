@@ -21,7 +21,7 @@ const Projects = () => {
                 initial={{ y: -100, opacity: 0 }}
                 whileInView={{ y: 0, opacity: 1 }}
                 transition={{ duration: 1 }}
-                className="flex justify-center w-full lg:w-1/4"
+                className="flex justify-center w-full max-h-36 lg:w-1/4"
               >
                 <img
                   src={project.image}

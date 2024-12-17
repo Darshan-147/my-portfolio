@@ -2,6 +2,7 @@ import scheduleX from "../assets/projects/scheduleX.png";
 import ParkIT from "../assets/projects/ParkIT.png";
 import myPortfolio from "../assets/projects/myPortfolio.png";
 import Xpense from "../assets/projects/Xpense.png";
+import restReservation from "../assets/projects/restaurantReservation.png"
 
 export const HERO_CONTENT = `I am a passionate full stack developer with a knack for crafting robust and scalable web applications. I have honed my skills in front-end technologies like React, HTML and CSS as well as back-end technologies like Node.js, MySQL and MongoDB. My goal is to leverage my expertise to create innovative solutions that drive business growth and deliver exceptional user experiences.`;
 
@@ -72,6 +73,12 @@ export const EXPERIENCES = [
 ];
 
 export const PROJECTS = [
+  {
+    title: "Restaurant Reservation Website",
+    image: restReservation,
+    description: "Developed a full-stack website that takes the hassle out of dining by enabling seamless online restaurant reservations. Featuring an intuitive and visually appealing UI paired with a robust and secure backend, this platform ensures a delightful user experience from booking to dining. Do come someday and enjoy your feast :)",
+    technologies: ["MongoDB", "Express", "React", "NodeJS"],
+  },
   {
     title: "ScheduleX - CPU Algo Scheduler",
     image: scheduleX,
