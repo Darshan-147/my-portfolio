@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { FaNodeJs } from "react-icons/fa";
 import { RiReactjsLine } from "react-icons/ri";
-import { SiCss3, SiExpress, SiHtml5, SiMongodb } from "react-icons/si";
+import { SiCss3, SiExpress, SiHtml5, SiMongodb, SiGit, SiPython, } from "react-icons/si";
 import { TECHNOLOGIES } from "../constants";
 
 const iconComponents = {
@@ -12,6 +12,8 @@ const iconComponents = {
   express: <SiExpress />,
   react: <RiReactjsLine />,
   node: <FaNodeJs />,
+  git: <SiGit />,
+  python: <SiPython />,
 };
 
 const iconVariants = (duration) => ({
@@ -56,12 +58,12 @@ const Technologies = () => {
             onMouseEnter={() => setHoveredTech(tech.id)}
             onMouseLeave={() => setHoveredTech(null)}
           >
-            <div className={`text-7xl ${tech.color}`}>
+            <div className={`text-7xl text-${tech.color}`}>
               {iconComponents[tech.id]}
             </div>
             {hoveredTech === tech.id && (
               <span
-                className={`absolute top-full mt-2 pe-6 w-full text-center text-lg text-${tech.hoverColor}`}
+                className={`absolute top-full mt-2 pe-6 w-full text-center text-lg text-${tech.color}`}
               >
                 {tech.name}
               </span>

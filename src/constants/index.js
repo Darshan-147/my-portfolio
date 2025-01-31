@@ -12,38 +12,50 @@ export const TECHNOLOGIES = [
   {
     id: "html",
     name: "HTML",
-    color: "text-orange-500",
+    color: "orange-500",
     hoverColor: "orange-300",
   },
   {
     id: "css",
     name: "CSS",
-    color: "text-blue-600",
+    color: "blue-600",
     hoverColor: "blue-300",
   },
   {
     id: "mongodb",
     name: "MongoDB",
-    color: "text-green-700",
+    color: "green-700",
     hoverColor: "green-400",
   },
   {
     id: "express",
     name: "Express",
-    color: "text-gray-500",
+    color: "gray-500",
     hoverColor: "gray-400",
   },
   {
     id: "react",
     name: "React",
-    color: "text-cyan-400",
+    color: "cyan-400",
     hoverColor: "cyan-200",
   },
   {
     id: "node",
-    name: "Node.js",
-    color: "text-green-500",
+    name: "Node",
+    color: "green-500",
     hoverColor: "green-300",
+  },
+  {
+    id: "git",
+    name: "Git",
+    color: "red-600",
+    hoverColor: "red-300",
+  },
+  {
+    id: "python",
+    name: "Python",
+    color: "yellow-400",
+    hoverColor: "yellow-300",
   },
 ];
 

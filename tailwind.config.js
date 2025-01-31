@@ -2,18 +2,10 @@
 export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   safelist: [
-    "hover:border-orange-300",
-    "hover:border-blue-300",
-    "hover:border-green-400",
-    "hover:border-gray-400",
-    "hover:border-cyan-200",
-    "hover:border-green-300",
-    "text-orange-300",
-    "text-blue-300",
-    "text-green-400",
-    "text-gray-400",
-    "text-cyan-200",
-    "text-green-300"
+    {
+      pattern: /(text|border)-(orange|blue|green|gray|cyan|red|yellow)-(100|200|300|400|500|600|700|800|900)/,
+      variants: ['hover']
+    }
   ],
   theme: {
     extend: {},
