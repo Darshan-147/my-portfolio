@@ -7,3 +7,8 @@
 :root {
     font-family: "Inter", sans-serif;
 }
+
+.python-border:hover {
+    border-image: linear-gradient(to right, #5A9FD4 40%, #FFE873 60%) 1;
+    border-radius: 1rem;
+  }

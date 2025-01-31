@@ -2,8 +2,17 @@ import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { FaNodeJs } from "react-icons/fa";
 import { RiReactjsLine } from "react-icons/ri";
-import { SiCss3, SiExpress, SiHtml5, SiMongodb, SiGit, SiPython, } from "react-icons/si";
+import {
+  SiCss3,
+  SiExpress,
+  SiHtml5,
+  SiMongodb,
+  SiGit,
+  SiPython,
+} from "react-icons/si";
 import { TECHNOLOGIES } from "../constants";
+import PythonLogo from "./PythonLogo";
+import '../index.css';
 
 const iconComponents = {
   html: <SiHtml5 />,
@@ -13,7 +22,7 @@ const iconComponents = {
   react: <RiReactjsLine />,
   node: <FaNodeJs />,
   git: <SiGit />,
-  python: <SiPython />,
+  python: <PythonLogo />,
 };
 
 const iconVariants = (duration) => ({
@@ -34,6 +43,7 @@ const Technologies = () => {
 
   return (
     <div className="border-b border-neutral-800 pb-24">
+      {/* Heading */}
       <motion.h2
         initial={{ y: -100, opacity: 0 }}
         whileInView={{ y: 0, opacity: 1 }}
@@ -48,24 +58,40 @@ const Technologies = () => {
         transition={{ duration: 1.5 }}
         className="flex flex-wrap items-center justify-center gap-4"
       >
+        {/* Technologies */}
         {TECHNOLOGIES.map((tech, index) => (
           <motion.div
             key={tech.id}
             variants={iconVariants(1.5 + index * 0.5)}
             initial="initial"
             animate="animate"
-            className={`relative rounded-2xl border-4 border-neutral-800 p-4 hover:border-${tech.hoverColor}`}
+            className={`relative rounded-2xl border-4 border-neutral-800 ${
+              tech.id === 'python' 
+                ? 'python-border' // Custom class for Python
+                : `hover:border-${tech.hoverColor}`
+            } p-4`}
             onMouseEnter={() => setHoveredTech(tech.id)}
             onMouseLeave={() => setHoveredTech(null)}
           >
-            <div className={`text-7xl text-${tech.color}`}>
+            <div
+              className={`text-7xl ${
+                tech.id === "python" ? "" : `text-${tech.color}`
+              }`}
+            >
               {iconComponents[tech.id]}
             </div>
             {hoveredTech === tech.id && (
               <span
                 className={`absolute top-full mt-2 pe-6 w-full text-center text-lg text-${tech.color}`}
               >
-                {tech.name}
+                {tech.id === "python" ? (
+                  <>
+                    <span className="text-[#306998]">Py</span>
+                    <span className="text-[#FFD43B]">thon</span>
+                  </>
+                ) : (
+                  tech.name
+                )}
               </span>
             )}
           </motion.div>
