@@ -32,7 +32,7 @@ const Contact = () => {
             rel="noopener noreferrer"
             className="my-4 border-b"
           >
-            {CONTACT.email1}
+            {CONTACT.email_1}
           </a>
         </motion.p>
         <motion.p
@@ -46,7 +46,7 @@ const Contact = () => {
             rel="noopener noreferrer"
             className="my-4 border-b"
           >
-            {CONTACT.email2}
+            {CONTACT.email_2}
           </a>
         </motion.p>
       </div>

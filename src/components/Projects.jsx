@@ -23,13 +23,13 @@ const Projects = () => {
                 transition={{ duration: 1 }}
                 className="flex justify-center w-full max-h-36 lg:w-1/4"
               >
-                <img
-                  src={project.image}
-                  width={150}
-                  height={150}
-                  alt={project.title}
-                  className="mb-6 rounded"
-                />
+                <a href={project.url} target="_blank" rel="noopener noreferrer">
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    className="mb-6 rounded w-[150px] h-[120px]"
+                  />
+                </a>
               </motion.div>
               <motion.div
                 initial={{ x: 100, opacity: 0 }}
@@ -37,7 +37,14 @@ const Projects = () => {
                 transition={{ duration: 1 }}
                 className="w-full max-w-xl lg:w-3/4"
               >
-                <h6 className="mb-2 font-semibold">{project.title}</h6>
+                <a
+                  href={project.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mb-2 text-xl font-semibold block project-title"
+                >
+                  {project.title}
+                </a>
                 <p className="mb-4 text-neutral-400">{project.description}</p>
                 <div>
                   {project.technologies.map((tech, index) => (

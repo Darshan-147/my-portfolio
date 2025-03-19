@@ -22,7 +22,7 @@ const Experience = () => {
               transition={{ duration: 1 }}
               className="w-full lg:w-1/4"
             >
-              <p className="mb-2 text-sm text-neutral-400">{experience.year}</p>
+              <p className="mb-2 text-md text-neutral-400">{experience.year}</p>
             </motion.div>
             <motion.div
               initial={{ x: 100, opacity: 0 }}
@@ -32,9 +32,14 @@ const Experience = () => {
             >
               <h6 className="mb-2 font-semibold">
                 {experience.role} -{" "}
-                <span className="text-sm text-purple-100">
+                <a
+                  href={experience.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm text-purple-100"
+                >
                   {experience.company}
-                </span>
+                </a>
               </h6>
               <p className="mb-4 text-neutral-400">{experience.description}</p>
               {experience.technologies.map((tech, index) => (
