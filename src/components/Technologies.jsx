@@ -8,7 +8,7 @@ import {
   SiHtml5,
   SiMongodb,
   SiGit,
-  SiPython,
+  SiVuedotjs
 } from "react-icons/si";
 import { TECHNOLOGIES } from "../constants";
 import PythonLogo from "./PythonLogo";
@@ -23,6 +23,7 @@ const iconComponents = {
   node: <FaNodeJs />,
   git: <SiGit />,
   python: <PythonLogo />,
+  vue: <SiVuedotjs />
 };
 
 const iconVariants = (duration) => ({

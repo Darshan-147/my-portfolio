@@ -35,20 +35,6 @@ const Contact = () => {
             {CONTACT.email_1}
           </a>
         </motion.p>
-        <motion.p
-          initial={{ x: 200, y: -200, opacity: 0 }}
-          whileInView={{ x: 0, y: 0, opacity: 1 }}
-          transition={{ duration: 1, delay: 1 }}
-        >
-          <a
-            href="https://mail.google.com/mail/?view=cm&fs=1&to=darshan.sce21@sot.pdpu.ac.in&su=Hello&body=Dear%20Darshan,%0A%0AI%20would%20like%20to%20reach%20out%20to%20you%20regarding..."
-            target="_blank"
-            rel="noopener noreferrer"
-            className="my-4 border-b"
-          >
-            {CONTACT.email_2}
-          </a>
-        </motion.p>
       </div>
     </div>
   );

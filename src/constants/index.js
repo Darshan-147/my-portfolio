@@ -1,5 +1,4 @@
 import scheduleX from "../assets/projects/scheduleX.png";
-import ParkIT from "../assets/projects/ParkIT.png";
 import myPortfolio from "../assets/projects/myPortfolio.png";
 import Xpense from "../assets/projects/Xpense.png";
 import restReservation from "../assets/projects/restaurantReservation.png";
@@ -58,11 +57,25 @@ export const TECHNOLOGIES = [
     color: "yellow-400",
     hoverColor: "yellow-300",
   },
+  {
+    id: "vue",
+    name: "Vue",
+    color: "green-500",
+    hoverColor: "green-300",
+  },
 ];
 
 export const EXPERIENCES = [
   {
-    year: "May 2024 - July 2024",
+    year: "April 2025 ~ Present",
+    role: "Associate Software Engineer",
+    company: "V2Solutions",
+    url: "https://www.v2solutions.com/",
+    description: `I'm working here as a frontend web developer building the projects assigned by the client.`,
+    technologies: ["Vue"],
+  },
+  {
+    year: "May 2024 ~ July 2024",
     role: "Frontend Web Developer Intern",
     company: "Drop Techno Lab",
     url: "https://www.droptechnolab.com",
@@ -78,7 +91,7 @@ export const EXPERIENCES = [
     technologies: ["Brainstorming"],
   },
   {
-    year: "March 2024 – April 2024",
+    year: "March 2024 ~ April 2024",
     role: "Management Intern",
     company: "Triquench India Pvt. Ltd.",
     url: "https://www.triquenchindia.com/",
@@ -94,7 +107,7 @@ export const PROJECTS = [
     description:
       "Developed a full-stack website that takes the hassle out of dining by enabling seamless online restaurant reservations. Featuring an intuitive and visually appealing UI paired with a robust and secure backend, this platform ensures a delightful user experience from booking to dining. Do come someday and enjoy your feast :)",
     technologies: ["MongoDB", "Express", "React", "NodeJS"],
-    url: "https://restaurant-reservation-using-mern-stack.vercel.app"
+    url: "https://restaurant-reservation-using-mern-stack.vercel.app",
   },
   {
     title: "Uber Clone (Beta)",
@@ -102,7 +115,7 @@ export const PROJECTS = [
     description:
       "A clone of the Uber app that allows users to book rides, track their location, and make payments and lets drivers accept or reject the rides created by the user. This project is under development and more features may be added in the future. Stay tuned!",
     technologies: ["ORS Maps API", "MongoDB", "Express", "React", "NodeJS"],
-    url: "https://github.com/Darshan-147/uber-clone"
+    url: "https://github.com/Darshan-147/uber-clone",
   },
   {
     title: "ScheduleX - CPU Algo Scheduler",
@@ -110,7 +123,7 @@ export const PROJECTS = [
     description:
       "A fully functional simulator that demonstrates and implements usage of different CPU scheduling algorithms. Herein, 4 such algorithms have been implemented.",
     technologies: ["HTML", "CSS", "JavaScript"],
-    url: "https://github.com/Darshan-147/ScheduleX-OS-Project"
+    url: "https://github.com/Darshan-147/ScheduleX-OS-Project",
   },
   {
     title: "Darshan's Portfolio",
@@ -118,21 +131,20 @@ export const PROJECTS = [
     description:
       "A personal portfolio website showcasing my projects, skills, and contact information. Recursion exists :)",
     technologies: ["HTML", "CSS", "React", "Tailwind"],
-    url: "https://portfolio-of-darshansoni.vercel.app/"
+    url: "https://portfolio-of-darshansoni.vercel.app/",
   },
-  
+
   {
     title: "Trexpense - Expense Tracker",
     image: Xpense,
     description:
       "This tracker keeps the track of user's expenses and provides weekly, monthly as well as yearly analysis via charts.",
     technologies: ["HTML", "CSS", "JavaScript", "Django", "SQL"],
-    url: "https://github.com/Darshan-147/Expense-Tracker"
+    url: "https://github.com/Darshan-147/Expense-Tracker",
   },
 ];
 
 export const CONTACT = {
   phone_number: "+91 81607 46102",
   email_1: "darshaner2019@gmail.com",
-  email_2: "darshan.sce21@sot.pdpu.ac.in",
 };
