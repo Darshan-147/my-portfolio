@@ -37,7 +37,7 @@ const Navbar = () => {
           <FaGithub size={30} />
         </a>
         <a
-          href="https://www.instagram.com/oye_darshannn/"
+          href="https://www.instagram.com/darshan.kiddo.dev/"
           target="_blank"
           rel="noopener noreferrer"
           className="hover:text-orange-600"
