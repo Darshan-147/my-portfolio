@@ -1,10 +1,39 @@
-import React from "react";
-import { CONTACT } from "../constants";
+import { useRef, useState } from "react";
 import { motion } from "framer-motion";
+import emailjs from "@emailjs/browser";
+import { CONTACT } from "../constants";
 
 const Contact = () => {
+  const formRef = useRef();
+  const [loading, setLoading] = useState(false);
+  const [done, setDone] = useState(false);
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+    setLoading(true);
+
+    emailjs
+      .sendForm(
+        "service_oal8vrh",
+        "template_obua41r",
+        formRef.current,
+        "0BDPM-bbM5R31OkEd"
+      )
+      .then(
+        () => {
+          setLoading(false);
+          setDone(true);
+          formRef.current.reset();
+        },
+        (error) => {
+          setLoading(false);
+          console.log("FAILED...", error.text);
+        }
+      );
+  };
+
   return (
-    <div className="border-b border-neutral-900 pb-4">
+    <div className="border-b border-neutral-900 pb-16">
       <motion.h2
         initial={{ y: -100, opacity: 0 }}
         whileInView={{ y: 0, opacity: 1 }}
@@ -13,29 +42,78 @@ const Contact = () => {
       >
         Let's Discuss Ideas Together
       </motion.h2>
-      <div className="flex flex-col gap-2 justify-center text-center tracking-tighter">
+
+      {/* Contact Info */}
+      <div className="flex flex-col gap-2 justify-center text-center tracking-tighter mb-10">
         <motion.p
           initial={{ x: -200, opacity: 0 }}
           whileInView={{ x: 0, opacity: 1 }}
-          transition={{ duration: 1, delay: 0 }}
+          transition={{ duration: 1 }}
         >
           {CONTACT.phone_number}
         </motion.p>
         <motion.p
-          initial={{ x: -200, y: -200, opacity: 0 }}
-          whileInView={{ x: 0, y: 0, opacity: 1 }}
-          transition={{ duration: 1, delay: 1 }}
+          initial={{ x: 200, opacity: 0 }}
+          whileInView={{ x: 0, opacity: 1 }}
+          transition={{ duration: 1, delay: 0.5 }}
         >
           <a
-            href="https://mail.google.com/mail/?view=cm&fs=1&to=darshaner2019@gmail.com&su=Hello&body=Dear%20Darshan,%0A%0AI%20would%20like%20to%20reach%20out%20to%20you%20regarding..."
-            target="_blank"
-            rel="noopener noreferrer"
-            className="my-4 border-b"
+            href={`mailto:${CONTACT.email_1}`}
+            className="border-b hover:text-purple-300"
           >
             {CONTACT.email_1}
           </a>
         </motion.p>
       </div>
+
+      {/* Contact Form */}
+      <motion.form
+        ref={formRef}
+        onSubmit={sendEmail}
+        initial={{ opacity: 0, y: 100 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1 }}
+        className="max-w-lg mx-auto flex flex-col gap-4 p-6 rounded-xl bg-neutral-900 shadow-lg"
+        autoComplete="off"
+      >
+        <input
+          type="text"
+          name="user_name"
+          placeholder="Your Name"
+          required
+          className="px-4 py-2 rounded bg-neutral-800 text-white outline-none"
+        />
+        <input
+          type="email"
+          name="user_email"
+          placeholder="Your Email"
+          required
+          className="px-4 py-2 rounded bg-neutral-800 text-white outline-none"
+        />
+        <textarea
+          name="message"
+          rows="5"
+          placeholder="Your Message"
+          required
+          className="px-4 py-2 rounded bg-neutral-800 text-white outline-none"
+        ></textarea>
+
+        <motion.button
+          whileTap={{ scale: 0.9 }}
+          whileHover={{ scale: 1.05 }}
+          type="submit"
+          disabled={loading}
+          className="py-2 rounded bg-[#5229CD] hover:bg-[#6b3af0] transition text-white font-semibold"
+        >
+          {loading ? "Sending..." : "Send Message"}
+        </motion.button>
+
+        {done && (
+          <p className="text-center text-green-400 mt-2">
+            ✅ Message sent successfully!
+          </p>
+        )}
+      </motion.form>
     </div>
   );
 };

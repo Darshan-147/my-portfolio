@@ -1,4 +1,3 @@
-import React from "react";
 import { PROJECTS } from "../constants";
 import { motion } from "framer-motion";
 
@@ -6,14 +5,22 @@ const Projects = () => {
   return (
     <div>
       <div className="border-b border-neutral-900 pb-4">
-        <motion.h1
+        <motion.div
           initial={{ y: -100, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
-          transition={{ duration: 1.5 }}
-          className="my-20 text-center text-4xl"
+          transition={{ duration: 1 }}
+          className="relative my-20 text-center"
         >
-          Projects
-        </motion.h1>
+          <h2 className="text-4xl">Projects</h2>
+          <motion.span
+            className="absolute left-[43%] -bottom-2 h-0.5 w-[14%] bg-white rounded"
+            initial={{ scaleX: 0 }}
+            whileInView={{ scaleX: 1 }}
+            transition={{ duration: 2, ease: "backIn" }}
+            style={{ transformOrigin: "center" }}
+            viewport={{ amount: 0.6 }}
+          />
+        </motion.div>
         <div>
           {PROJECTS.map((project, index) => (
             <div key={index} className="mb-8 flex flex-wrap lg:justify-center">

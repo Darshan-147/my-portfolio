@@ -6,7 +6,7 @@ import UberClone from "../assets/projects/UberClone.png";
 
 export const HERO_CONTENT = `I am a passionate full stack developer with a knack for crafting robust and scalable web applications. I have honed my skills in front-end technologies like React, HTML and CSS as well as back-end technologies like Node.js, MySQL and MongoDB. My goal is to leverage my expertise to create innovative solutions that drive business growth and deliver exceptional user experiences.`;
 
-export const ABOUT_TEXT = `I am a dedicated and versatile full stack developer with a passion for creating efficient and user-friendly web applications. I have worked with a variety of technologies, including React, Node.js, MySQL, and MongoDB. My journey in web development began with a deep curiosity for how things work, and it has evolved into a career where I continuously strive to learn and adapt to new challenges. I thrive in collaborative environments and enjoy solving complex problems to deliver high-quality solutions. Outside of coding, I enjoy playing keyboard, going on chai dates (with myself) and yeah, chess is my favourite.`;
+export const ABOUT_TEXT = `I am a dedicated and versatile full stack developer with a passion for creating efficient and user-friendly web applications. I have worked with a variety of technologies, including React, Vue, Node.js, MySQL, and MongoDB. My journey in web development began with a deep curiosity for how things work, and it has evolved into a career where I continuously strive to learn and adapt to new challenges. I thrive in collaborative environments and enjoy solving complex problems to deliver high-quality solutions. Outside of coding, I enjoy playing keyboard, going on chai dates (with myself) and yeah, chess is my favourite.`;
 
 export const TECHNOLOGIES = [
   {
@@ -147,4 +147,56 @@ export const PROJECTS = [
 export const CONTACT = {
   phone_number: "+91 81607 46102",
   email_1: "darshaner2019@gmail.com",
+};
+
+export const calculateDuration = (range) => {
+  const [startStr, endStr] = range.includes("~")
+    ? range.split("~").map((s) => s.trim())
+    : [range.trim(), range.trim()];
+
+  const monthMap = {
+    January: 0,
+    February: 1,
+    March: 2,
+    April: 3,
+    May: 4,
+    June: 5,
+    July: 6,
+    August: 7,
+    September: 8,
+    October: 9,
+    November: 10,
+    December: 11,
+  };
+
+  const parseDate = (str) => {
+    if (str.toLowerCase() === "present") {
+      return new Date();
+    }
+    const [month, year] = str.split(" ");
+    return new Date(Number(year), monthMap[month]);
+  };
+
+  const start = parseDate(startStr);
+  const end = parseDate(endStr);
+
+  // Difference in months
+  const months =
+    (end.getFullYear() - start.getFullYear()) * 12 +
+    (end.getMonth() - start.getMonth()) +
+    1;
+
+  // Format as "x months" or "x years y months"
+  const years = Math.floor(months / 12);
+  const remainingMonths = months % 12;
+
+  if (years > 0 && remainingMonths > 0) {
+    return `${years} year${years > 1 ? "s" : ""} ${remainingMonths} month${
+      remainingMonths > 1 ? "s" : ""
+    }`;
+  } else if (years > 0) {
+    return `${years} year${years > 1 ? "s" : ""}`;
+  } else {
+    return `${months} month${months > 1 ? "s" : ""}`;
+  }
 };

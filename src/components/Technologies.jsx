@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { FaNodeJs } from "react-icons/fa";
 import { RiReactjsLine } from "react-icons/ri";
@@ -8,11 +8,11 @@ import {
   SiHtml5,
   SiMongodb,
   SiGit,
-  SiVuedotjs
+  SiVuedotjs,
 } from "react-icons/si";
 import { TECHNOLOGIES } from "../constants";
 import PythonLogo from "./PythonLogo";
-import '../index.css';
+import "../index.css";
 
 const iconComponents = {
   html: <SiHtml5 />,
@@ -23,7 +23,7 @@ const iconComponents = {
   node: <FaNodeJs />,
   git: <SiGit />,
   python: <PythonLogo />,
-  vue: <SiVuedotjs />
+  vue: <SiVuedotjs />,
 };
 
 const iconVariants = (duration) => ({
@@ -45,14 +45,22 @@ const Technologies = () => {
   return (
     <div className="border-b border-neutral-800 pb-24">
       {/* Heading */}
-      <motion.h2
+      <motion.div
         initial={{ y: -100, opacity: 0 }}
         whileInView={{ y: 0, opacity: 1 }}
-        transition={{ duration: 1.5 }}
-        className="my-20 text-center text-4xl"
+        transition={{ duration: 1 }}
+        className="relative my-20 text-center"
       >
-        Technologies
-      </motion.h2>
+        <h2 className="text-4xl">Technologies</h2>
+        <motion.span
+          className="absolute left-[40%] -bottom-2 h-0.5 w-[20%] bg-white rounded"
+          initial={{ scaleX: 0 }}
+          whileInView={{ scaleX: 1 }}
+          transition={{ duration: 2, ease: "backIn" }}
+          style={{ transformOrigin: "center" }}
+          viewport={{ amount: 0.6 }}
+        />
+      </motion.div>
       <motion.div
         initial={{ x: -100, opacity: 0 }}
         whileInView={{ x: 0, opacity: 1 }}
@@ -67,8 +75,8 @@ const Technologies = () => {
             initial="initial"
             animate="animate"
             className={`relative rounded-2xl border-4 border-neutral-800 ${
-              tech.id === 'python' 
-                ? 'python-border' // Custom class for Python
+              tech.id === "python"
+                ? "python-border" // Custom class for Python
                 : `hover:border-${tech.hoverColor}`
             } p-4`}
             onMouseEnter={() => setHoveredTech(tech.id)}
