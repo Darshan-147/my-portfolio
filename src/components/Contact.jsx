@@ -14,10 +14,10 @@ const Contact = () => {
 
     emailjs
       .sendForm(
-        "service_oal8vrh",
-        "template_obua41r",
+        "service_oal8vrh", // ServiceID
+        "template_obua41r", // TemplateID
         formRef.current,
-        "0BDPM-bbM5R31OkEd"
+        "0BDPM-bbM5R31OkEd" // Public Key
       )
       .then(
         () => {
@@ -78,17 +78,26 @@ const Contact = () => {
       >
         <input
           type="text"
-          name="user_name"
+          name="name"
           placeholder="Your Name"
           required
           className="px-4 py-2 rounded bg-neutral-800 text-white outline-none"
         />
         <input
           type="email"
-          name="user_email"
+          name="email"
           placeholder="Your Email"
           required
           className="px-4 py-2 rounded bg-neutral-800 text-white outline-none"
+        />
+        <input
+          type="text"
+          name="time"
+          value={new Date().toLocaleTimeString([], {
+            hour: "2-digit",
+            minute: "2-digit",
+          })}
+          hidden
         />
         <textarea
           name="message"
