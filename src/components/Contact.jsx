@@ -21,15 +21,14 @@ const Contact = () => {
       )
       .then(
         () => {
-          setLoading(false);
           setDone(true);
           formRef.current.reset();
         },
         (error) => {
-          setLoading(false);
           console.log("FAILED...", error.text);
         }
-      );
+      )
+      .finally(() => setLoading(false));
   };
 
   return (
@@ -93,7 +92,7 @@ const Contact = () => {
         <input
           type="text"
           name="time"
-          value={new Date().toLocaleTimeString([], {
+          defaultValue={new Date().toLocaleTimeString([], {
             hour: "2-digit",
             minute: "2-digit",
           })}
