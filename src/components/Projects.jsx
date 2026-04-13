@@ -1,73 +1,161 @@
+import { useState, useMemo } from "react";
 import { PROJECTS } from "../constants";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 
 const Projects = () => {
+  const [selectedTech, setSelectedTech] = useState(null);
+
+  // Get unique technologies from all projects
+  const allTechs = useMemo(() => {
+    const techs = new Set();
+    PROJECTS.forEach((project) => {
+      project.technologies.forEach((tech) => techs.add(tech));
+    });
+    return Array.from(techs).sort();
+  }, []);
+
+  // Filter projects based on selected technology
+  const filteredProjects = useMemo(() => {
+    if (!selectedTech) return PROJECTS;
+    return PROJECTS.filter((project) =>
+      project.technologies.includes(selectedTech),
+    );
+  }, [selectedTech]);
+
   return (
-    <div>
-      <div className="border-b border-neutral-900 pb-4">
-        <motion.div
-          initial={{ y: -100, opacity: 0 }}
-          whileInView={{ y: 0, opacity: 1 }}
-          transition={{ duration: 1 }}
-          className="relative my-20 text-center"
+    <div
+      id="projects"
+      className="border-b-2 border-neutral-300 dark:border-neutral-900 pb-4"
+    >
+      <motion.div
+        initial={{ y: -100, opacity: 0 }}
+        whileInView={{ y: 0, opacity: 1 }}
+        transition={{ duration: 1 }}
+        className="relative my-20 text-center"
+      >
+        <h2 className="text-4xl">Projects</h2>
+        <motion.span
+          className="absolute left-[43%] -bottom-2 h-0.5 w-[14%] bg-neutral-900 dark:bg-white rounded"
+          initial={{ scaleX: 0 }}
+          whileInView={{ scaleX: 1 }}
+          transition={{ duration: 2, ease: "backIn" }}
+          style={{ transformOrigin: "center" }}
+          viewport={{ amount: 0.6 }}
+        />
+      </motion.div>
+
+      {/* Tech Filter */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ duration: 0.5 }}
+        className="flex flex-wrap gap-2 justify-center mb-10 px-4"
+      >
+        <button
+          onClick={() => setSelectedTech(null)}
+          className={`px-4 py-2 rounded-full transition-all ${
+            selectedTech === null
+              ? "bg-purple-600 text-white"
+              : "bg-neutral-200 dark:bg-neutral-800 text-neutral-900 dark:text-neutral-300 hover:bg-neutral-300 dark:hover:bg-neutral-700"
+          }`}
         >
-          <h2 className="text-4xl">Projects</h2>
-          <motion.span
-            className="absolute left-[43%] -bottom-2 h-0.5 w-[14%] bg-white rounded"
-            initial={{ scaleX: 0 }}
-            whileInView={{ scaleX: 1 }}
-            transition={{ duration: 2, ease: "backIn" }}
-            style={{ transformOrigin: "center" }}
-            viewport={{ amount: 0.6 }}
-          />
-        </motion.div>
-        <div>
-          {PROJECTS.map((project, index) => (
-            <div key={index} className="mb-8 flex flex-wrap lg:justify-center">
+          All Projects
+        </button>
+        {allTechs.map((tech) => (
+          <button
+            key={tech}
+            onClick={() => setSelectedTech(tech)}
+            className={`px-4 py-2 rounded-full transition-all ${
+              selectedTech === tech
+                ? "bg-purple-600 text-white"
+                : "bg-neutral-200 dark:bg-neutral-800 text-neutral-900 dark:text-neutral-300 hover:bg-neutral-300 dark:hover:bg-neutral-700"
+            }`}
+          >
+            {tech}
+          </button>
+        ))}
+      </motion.div>
+
+      {/* Projects Grid */}
+      <AnimatePresence>
+        {filteredProjects.length > 0 ? (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+          >
+            {filteredProjects.map((project, index) => (
               <motion.div
-                initial={{ y: -100, opacity: 0 }}
+                key={`${project.title}-${index}`}
+                initial={{ y: 20, opacity: 0 }}
                 whileInView={{ y: 0, opacity: 1 }}
-                transition={{ duration: 1 }}
-                className="flex justify-center w-full max-h-36 lg:w-1/4"
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className="mb-8 flex flex-wrap lg:justify-center gap-4 p-4 rounded-lg transition"
               >
-                <a href={project.url} target="_blank" rel="noopener noreferrer">
-                  <img
-                    src={project.image}
-                    alt={project.title}
-                    className="mb-6 rounded w-[150px] h-[120px]"
-                  />
-                </a>
-              </motion.div>
-              <motion.div
-                initial={{ x: 100, opacity: 0 }}
-                whileInView={{ x: 0, opacity: 1 }}
-                transition={{ duration: 1 }}
-                className="w-full max-w-xl lg:w-3/4"
-              >
-                <a
-                  href={project.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="mb-2 text-xl font-semibold block project-title"
+                <motion.div
+                  initial={{ y: -100, opacity: 0 }}
+                  whileInView={{ y: 0, opacity: 1 }}
+                  transition={{ duration: 1 }}
+                  className="flex justify-center items-center w-full lg:w-1/4"
                 >
-                  {project.title}
-                </a>
-                <p className="mb-4 text-neutral-400">{project.description}</p>
-                <div>
-                  {project.technologies.map((tech, index) => (
-                    <span
-                      key={index}
-                      className="mr-2 mt-4 rounded bg-neutral-900 px-2 py-1 text-sm font-medium text-yellow-200"
-                    >
-                      {tech}
-                    </span>
-                  ))}
-                </div>
+                  <a
+                    href={project.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:scale-105 transition-transform"
+                  >
+                    <img
+                      src={project.image}
+                      alt={project.title}
+                      className="mb-6 rounded w-[150px] h-[120px] object-cover shadow-lg"
+                      loading="lazy"
+                    />
+                  </a>
+                </motion.div>
+                <motion.div
+                  initial={{ x: 100, opacity: 0 }}
+                  whileInView={{ x: 0, opacity: 1 }}
+                  transition={{ duration: 1 }}
+                  className="w-full max-w-xl lg:w-3/4"
+                >
+                  <a
+                    href={project.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mb-2 text-xl font-semibold block hover:text-purple-400 transition"
+                  >
+                    {project.title}
+                  </a>
+                  <p className="mb-4 text-neutral-600 dark:text-neutral-400 leading-relaxed">
+                    {project.description}
+                  </p>
+                  <div className="flex flex-wrap gap-2">
+                    {project.technologies.map((tech, index) => (
+                      <motion.button
+                        key={index}
+                        onClick={() => setSelectedTech(tech)}
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                        className="mr-2 mt-4 rounded bg-neutral-800 dark:bg-neutral-900 px-3 py-1 text-sm font-medium text-yellow-200 hover:bg-neutral-700 dark:hover:bg-neutral-800 transition cursor-pointer"
+                      >
+                        {tech}
+                      </motion.button>
+                    ))}
+                  </div>
+                </motion.div>
               </motion.div>
-            </div>
-          ))}
-        </div>
-      </div>
+            ))}
+          </motion.div>
+        ) : (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            className="text-center py-10 text-neutral-600 dark:text-neutral-400"
+          >
+            No projects found with {selectedTech}
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 };

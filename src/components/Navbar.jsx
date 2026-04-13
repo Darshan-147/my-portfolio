@@ -1,48 +1,84 @@
 import nameLogo from "../assets/images/darshanSoni_logo.png";
 import { FaLinkedin } from "react-icons/fa";
 import { FaGithub } from "react-icons/fa";
-import { FaInstagram } from "react-icons/fa";
 import { motion } from "framer-motion";
+import { scrollToId, scrollToTop } from "../hooks/useScroll";
+import CVDownload from "./CVDownload";
+import ThemeToggle from "./ThemeToggle";
+
+const navLinks = ["about", "tech", "experience", "projects", "contact"];
 
 const Navbar = () => {
+  const handleScrollToTop = () => {
+    scrollToTop();
+    window.history.pushState(
+      null,
+      "",
+      `${window.location.pathname}${window.location.search}`,
+    );
+  };
+
+  const handleNavClick = (e, id) => {
+    e.preventDefault();
+    scrollToId(id);
+    window.history.pushState(null, "", `/#${id}`);
+  };
   return (
-    <nav className="flex items-center justify-between py-6">
-      <div className="flex flex-shrink-0 items-center">
+    <nav className="flex items-center justify-between py-6 px-12 fixed top-0 left-0 right-0 z-50 bg-white dark:bg-black border-b border-neutral-200 dark:border-neutral-800">
+      {/* Logo (left side) */}
+      <div
+        className="w-16 cursor-pointer flex flex-shrink-0 items-center"
+        onClick={handleScrollToTop}
+      >
         <motion.img
           src={nameLogo}
-          whileTap={{
+          whileHover={{
             rotate: 360,
             scale: 0.2,
             filter: "drop-shadow(0 0 8px #fff)",
           }}
           transition={{ duration: 0.6 }}
-          className="w-16 cursor-pointer"
+          className="rounded-lg"
           alt="logo"
         ></motion.img>
       </div>
-      <div className="m-8 flex items-center justify-center gap-4 text-2xl">
+
+      {/* Center Navigation */}
+      <div className="hidden md:flex items-center gap-6">
+        {navLinks.map((link) => (
+          <a
+            key={link}
+            href={`#${link}`}
+            onClick={(e) => handleNavClick(e, link)}
+            className="text-md text-neutral-900 dark:text-neutral-300 hover:text-purple-400 transition"
+          >
+            {link.charAt(0).toUpperCase() + link.slice(1)}
+          </a>
+        ))}
+      </div>
+
+      {/* Right side actions */}
+      <div className="flex items-center justify-center gap-4">
+        <CVDownload />
+        <ThemeToggle />
+
         <a
           href="https://www.linkedin.com/in/darshansoni26/"
           target="_blank"
           rel="noopener noreferrer"
-          className="hover:text-blue-500"
+          className="text-neutral-900 dark:text-neutral-300 hover:text-blue-500 transition-colors"
+          aria-label="LinkedIn"
         >
-          <FaLinkedin size={30} />
+          <FaLinkedin size={24} />
         </a>
         <a
           href="https://github.com/Darshan-147"
           target="_blank"
           rel="noopener noreferrer"
+          className="text-neutral-900 dark:text-neutral-300 hover:text-gray-600 dark:hover:text-gray-400 transition-colors"
+          aria-label="GitHub"
         >
-          <FaGithub size={30} />
-        </a>
-        <a
-          href="https://www.instagram.com/darshan.kiddo.dev/"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="hover:text-orange-600"
-        >
-          <FaInstagram size={30} />
+          <FaGithub size={24} />
         </a>
       </div>
     </nav>

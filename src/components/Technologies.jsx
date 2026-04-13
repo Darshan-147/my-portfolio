@@ -43,7 +43,10 @@ const Technologies = () => {
   const [hoveredTech, setHoveredTech] = useState(null);
 
   return (
-    <div className="border-b border-neutral-800 pb-24">
+    <div
+      id="tech"
+      className="border-b-2 border-neutral-300 dark:border-neutral-900 pb-10"
+    >
       {/* Heading */}
       <motion.div
         initial={{ y: -100, opacity: 0 }}
@@ -53,7 +56,7 @@ const Technologies = () => {
       >
         <h2 className="text-4xl">Technologies</h2>
         <motion.span
-          className="absolute left-[40%] -bottom-2 h-0.5 w-[20%] bg-white rounded"
+          className="absolute left-[40%] -bottom-2 h-0.5 w-[20%] bg-neutral-900 dark:bg-white rounded"
           initial={{ scaleX: 0 }}
           whileInView={{ scaleX: 1 }}
           transition={{ duration: 2, ease: "backIn" }}
@@ -74,24 +77,20 @@ const Technologies = () => {
             variants={iconVariants(1.5 + index * 0.5)}
             initial="initial"
             animate="animate"
-            className={`relative rounded-2xl border-4 border-neutral-800 ${
+            className={`relative rounded-2xl border-4 border-neutral-300 dark:border-neutral-800 ${
               tech.id === "python"
                 ? "python-border" // Custom class for Python
-                : `hover:border-${tech.hoverColor}`
+                : tech.hoverBorderClass
             } p-4`}
             onMouseEnter={() => setHoveredTech(tech.id)}
             onMouseLeave={() => setHoveredTech(null)}
           >
-            <div
-              className={`text-7xl ${
-                tech.id === "python" ? "" : `text-${tech.color}`
-              }`}
-            >
+            <div className={`text-7xl ${tech.id === "python" ? "" : tech.textClass}`}>
               {iconComponents[tech.id]}
             </div>
             {hoveredTech === tech.id && (
               <span
-                className={`absolute top-full mt-2 pe-6 w-full text-center text-lg text-${tech.color}`}
+                className={`absolute top-full mt-2 pe-6 w-full text-center text-lg ${tech.textClass}`}
               >
                 {tech.id === "python" ? (
                   <>

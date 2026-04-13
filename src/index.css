@@ -3,7 +3,6 @@
 @tailwind components;
 @tailwind utilities;
 
-
 :root {
     font-family: "Inter", sans-serif;
 }
@@ -11,11 +10,4 @@
 .python-border:hover {
     border-image: linear-gradient(to right, #5A9FD4 40%, #FFE873 60%) 1;
     border-radius: 1rem;
-  }
-
-.project-title:hover {
-    background: linear-gradient(to right, #60a5fa, #ec4899); 
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
 }

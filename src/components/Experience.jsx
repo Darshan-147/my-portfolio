@@ -1,9 +1,13 @@
+import { div } from "framer-motion/client";
 import { calculateDuration, EXPERIENCES } from "../constants";
 import { motion } from "framer-motion";
 
 const Experience = () => {
   return (
-    <div className="border-b border-neutral-900 pb-4">
+    <div
+      id="experience"
+      className="border-b-2 border-neutral-300 dark:border-neutral-900 pb-4"
+    >
       <motion.div
         initial={{ y: -100, opacity: 0 }}
         whileInView={{ y: 0, opacity: 1 }}
@@ -12,7 +16,7 @@ const Experience = () => {
       >
         <h2 className="text-4xl">Experience</h2>
         <motion.span
-          className="absolute left-[41%] -bottom-2 h-0.5 w-[18%] bg-white rounded"
+          className="absolute left-[41%] -bottom-2 h-0.5 w-[18%] bg-neutral-900 dark:bg-white rounded"
           initial={{ scaleX: 0 }}
           whileInView={{ scaleX: 1 }}
           transition={{ duration: 2, ease: "backIn" }}
@@ -29,8 +33,10 @@ const Experience = () => {
               transition={{ duration: 1 }}
               className="w-full lg:w-1/4"
             >
-              <p className="mb-2 text-md text-neutral-400">{experience.year}</p>
-              <p className="mb-2 text-md text-neutral-500">
+              <p className="mb-2 text-md text-neutral-600 dark:text-neutral-400">
+                {experience.year}
+              </p>
+              <p className="mb-2 text-md text-neutral-500 dark:text-neutral-500">
                 ({calculateDuration(experience.year)})
               </p>
             </motion.div>
@@ -46,16 +52,18 @@ const Experience = () => {
                   href={experience.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-sm text-purple-100"
+                  className="text-sm text-purple-600 dark:text-purple-100"
                 >
                   {experience.company}
                 </a>
               </h6>
-              <p className="mb-4 text-neutral-400">{experience.description}</p>
+              <p className="mb-4 text-neutral-600 dark:text-neutral-400">
+                {experience.description}
+              </p>
               {experience.technologies.map((tech, index) => (
                 <span
                   key={index}
-                  className="mr-2 mt-4 rounded bg-neutral-900 px-2 py-1 text-sm font-medium text-yellow-200"
+                  className="mr-2 mt-4 rounded bg-neutral-800 dark:bg-neutral-900 px-2 py-1 text-sm font-medium text-yellow-200"
                 >
                   {tech}
                 </span>

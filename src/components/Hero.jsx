@@ -9,7 +9,7 @@ const animation1 = (delay) => ({
 
 const Hero = () => {
   return (
-    <div className="border-b border-neutral-900 pb-4 lg:mb-35">
+    <div className="border-b-2 border-neutral-300 dark:border-neutral-900 pb-4">
       <div className="flex flex-wrap justify-center lg:justify-between">
         <div className="w-full lg:w-1/2">
           <div className="flex flex-col items-center lg:items-start">
@@ -42,19 +42,21 @@ const Hero = () => {
           </div>
         </div>
         <div className="flex items-center w-64 lg:w-1/3 lg:ml-32 lg:p-4">
-          <div>
-            <motion.img
-              initial={{ x: 100, opacity: 0 }}
-              whileInView={{
-                x: 0,
-                opacity: 1,
-                transition: { duration: 1, delay: 1.2 },
-              }}
+          <motion.div
+            initial={{ x: 100, opacity: 0 }}
+            whileInView={{
+              x: 0,
+              opacity: 1,
+              transition: { duration: 1, delay: 1.2 },
+            }}
+          >
+            <img
               src={profilePic}
               alt="Darshan Soni"
+              decoding="async"
               className="rounded-2xl"
             />
-          </div>
+          </motion.div>
         </div>
       </div>
     </div>

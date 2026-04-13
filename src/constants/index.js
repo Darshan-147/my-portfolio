@@ -12,56 +12,56 @@ export const TECHNOLOGIES = [
   {
     id: "html",
     name: "HTML",
-    color: "orange-500",
-    hoverColor: "orange-300",
+    textClass: "text-orange-500",
+    hoverBorderClass: "hover:border-orange-300 dark:hover:border-orange-300",
   },
   {
     id: "css",
     name: "CSS",
-    color: "blue-600",
-    hoverColor: "blue-300",
+    textClass: "text-blue-600",
+    hoverBorderClass: "hover:border-blue-300 dark:hover:border-blue-300",
   },
   {
     id: "mongodb",
     name: "MongoDB",
-    color: "green-700",
-    hoverColor: "green-400",
+    textClass: "text-green-700",
+    hoverBorderClass: "hover:border-green-400 dark:hover:border-green-400",
   },
   {
     id: "express",
     name: "Express",
-    color: "gray-500",
-    hoverColor: "gray-400",
+    textClass: "text-gray-500",
+    hoverBorderClass: "hover:border-gray-400 dark:hover:border-gray-400",
   },
   {
     id: "react",
     name: "React",
-    color: "cyan-400",
-    hoverColor: "cyan-200",
+    textClass: "text-cyan-400",
+    hoverBorderClass: "hover:border-cyan-200 dark:hover:border-cyan-200",
   },
   {
     id: "node",
     name: "Node",
-    color: "green-500",
-    hoverColor: "green-300",
+    textClass: "text-green-500",
+    hoverBorderClass: "hover:border-green-300 dark:hover:border-green-300",
   },
   {
     id: "git",
     name: "Git",
-    color: "red-600",
-    hoverColor: "red-300",
+    textClass: "text-red-600",
+    hoverBorderClass: "hover:border-red-300 dark:hover:border-red-300",
   },
   {
     id: "python",
     name: "Python",
-    color: "yellow-400",
-    hoverColor: "yellow-300",
+    textClass: "text-yellow-400",
+    hoverBorderClass: "hover:border-yellow-300 dark:hover:border-yellow-300",
   },
   {
     id: "vue",
     name: "Vue",
-    color: "green-500",
-    hoverColor: "green-300",
+    textClass: "text-green-500",
+    hoverBorderClass: "hover:border-green-300 dark:hover:border-green-300",
   },
 ];
 
@@ -71,8 +71,8 @@ export const EXPERIENCES = [
     role: "Associate Software Engineer",
     company: "V2Solutions",
     url: "https://www.v2solutions.com/",
-    description: `I'm working here as a frontend web developer building the projects assigned by the client.`,
-    technologies: ["Vue"],
+    description: `Worked for a No. 1 America's retail mortgage company as a frontend developer on VueJS. Improved frontend performance by ~20% by refactoring components and optimizing state management. Reduced UI defects by ~30% by integrating QA validation early in development lifecycle.`,
+    technologies: ["Vue","GenAI"],
   },
   {
     year: "May 2024 ~ July 2024",
@@ -81,22 +81,6 @@ export const EXPERIENCES = [
     url: "https://www.droptechnolab.com",
     description: `I worked on various frontend web development functionalities for developing and designing more than 7 sections of different pages of websites. Gained hands-on experience with various CDNs and libraries that come handy when developing instant websites. For example, bootstrap’s ready-made classes for responsiveness, various carousel libraries such as slick slider for creating a slideshow gallery.`,
     technologies: ["HTML", "CSS", "Bootstrap", "Javascript", "jQuery"],
-  },
-  {
-    year: "May 2024",
-    role: "Beta Tester",
-    company: "Infiheal",
-    url: "https://www.infiheal.com",
-    description: `Worked here as a Beta Tester, testing the "Healo" chatbot. Found 5+ features that lacked functionalities and provided constructive feedback to enhance product functionalities, suggestions and bugs for chatbot qualities.`,
-    technologies: ["Brainstorming"],
-  },
-  {
-    year: "March 2024 ~ April 2024",
-    role: "Management Intern",
-    company: "Triquench India Pvt. Ltd.",
-    url: "https://www.triquenchindia.com/",
-    description: `Got familiarized with the work culture, participated in their daily meetings and observed how to deal with people working under the supervisor, analyzing and assigning work and ensuring the team members remain aligned with task progress and deadlines.`,
-    technologies: [],
   },
 ];
 
@@ -110,7 +94,7 @@ export const PROJECTS = [
     url: "https://restaurant-reservation-using-mern-stack.vercel.app",
   },
   {
-    title: "Uber Clone (Beta)",
+    title: "Uber Clone",
     image: UberClone,
     description:
       "A clone of the Uber app that allows users to book rides, track their location, and make payments and lets drivers accept or reject the rides created by the user. This project is under development and more features may be added in the future. Stay tuned!",
@@ -146,7 +130,7 @@ export const PROJECTS = [
 
 export const CONTACT = {
   phone_number: "+91 81607 46102",
-  email_1: "darshaner2019@gmail.com",
+  email: "darshaninnovates@gmail.com",
 };
 
 export const calculateDuration = (range) => {
