@@ -1,4 +1,3 @@
-import { div } from "framer-motion/client";
 import { calculateDuration, EXPERIENCES } from "../constants";
 import { motion } from "framer-motion";
 

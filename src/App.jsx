@@ -1,7 +1,6 @@
 import { lazy, Suspense } from "react";
 import { ThemeProvider } from "./context/ThemeContext";
 import Navbar from "./components/Navbar";
-import LazySection from "./components/LazySection";
 import BackToTop from "./components/BackToTop";
 
 // Lazy load components for better performance
