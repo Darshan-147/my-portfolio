@@ -24,7 +24,7 @@ const Navbar = () => {
     window.history.pushState(null, "", `/#${id}`);
   };
   return (
-    <nav className="flex items-center justify-between py-6 mx-3 md:mx-20 fixed top-0 left-0 right-0 z-50 bg-white dark:bg-black border-b border-neutral-500">
+    <nav className="flex items-center justify-between py-6 mx-3 md:px-20 fixed top-0 left-0 right-0 z-50 bg-white dark:bg-black border-b border-neutral-500">
       {/* Logo (left side) */}
       <div
         className="w-10 md:w-16 cursor-pointer flex flex-shrink-0 items-center"
