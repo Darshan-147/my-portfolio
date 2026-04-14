@@ -1,0 +1,11 @@
+# robots.txt for Darshan Soni Portfolio
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /*.json$
+
+# Sitemap
+Sitemap: https://portfolio-of-darshansoni.vercel.app/sitemap.xml
+
+# Performance hints
+Crawl-delay: 1

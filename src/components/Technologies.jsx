@@ -43,10 +43,7 @@ const Technologies = () => {
   const [hoveredTech, setHoveredTech] = useState(null);
 
   return (
-    <div
-      id="tech"
-      className="border-b-2 border-neutral-300 dark:border-neutral-900 pb-10"
-    >
+    <section id="tech" className="border-b-2 border-neutral-500 pb-10">
       {/* Heading */}
       <motion.div
         initial={{ y: -100, opacity: 0 }}
@@ -77,15 +74,16 @@ const Technologies = () => {
             variants={iconVariants(1.5 + index * 0.5)}
             initial="initial"
             animate="animate"
-            className={`relative rounded-2xl border-4 border-neutral-300 dark:border-neutral-800 ${
-              tech.id === "python"
-                ? "python-border" // Custom class for Python
-                : tech.hoverBorderClass
+            className={`relative rounded-2xl border-4 border-neutral-500  ${
+              tech.id === "python" ? "python-border" : tech.hoverBorderClass
             } p-4`}
             onMouseEnter={() => setHoveredTech(tech.id)}
             onMouseLeave={() => setHoveredTech(null)}
           >
-            <div className={`text-7xl ${tech.id === "python" ? "" : tech.textClass}`}>
+            <div
+              className={`text-7xl ${tech.id === "python" ? "" : tech.textClass}`}
+              aria-hidden="true"
+            >
               {iconComponents[tech.id]}
             </div>
             {hoveredTech === tech.id && (
@@ -105,7 +103,7 @@ const Technologies = () => {
           </motion.div>
         ))}
       </motion.div>
-    </div>
+    </section>
   );
 };
 

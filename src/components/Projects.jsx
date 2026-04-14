@@ -23,10 +23,7 @@ const Projects = () => {
   }, [selectedTech]);
 
   return (
-    <div
-      id="projects"
-      className="border-b-2 border-neutral-300 dark:border-neutral-900 pb-4"
-    >
+    <section id="projects" className="border-b-2 border-neutral-500 pb-4">
       <motion.div
         initial={{ y: -100, opacity: 0 }}
         whileInView={{ y: 0, opacity: 1 }}
@@ -58,6 +55,7 @@ const Projects = () => {
               ? "bg-purple-600 text-white"
               : "bg-neutral-200 dark:bg-neutral-800 text-neutral-900 dark:text-neutral-300 hover:bg-neutral-300 dark:hover:bg-neutral-700"
           }`}
+          aria-pressed={selectedTech === null}
         >
           All Projects
         </button>
@@ -70,6 +68,7 @@ const Projects = () => {
                 ? "bg-purple-600 text-white"
                 : "bg-neutral-200 dark:bg-neutral-800 text-neutral-900 dark:text-neutral-300 hover:bg-neutral-300 dark:hover:bg-neutral-700"
             }`}
+            aria-pressed={selectedTech === tech}
           >
             {tech}
           </button>
@@ -85,11 +84,8 @@ const Projects = () => {
             exit={{ opacity: 0 }}
           >
             {filteredProjects.map((project, index) => (
-              <motion.div
+              <article
                 key={`${project.title}-${index}`}
-                initial={{ y: 20, opacity: 0 }}
-                whileInView={{ y: 0, opacity: 1 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
                 className="mb-8 flex flex-wrap lg:justify-center gap-4 p-4 rounded-lg transition"
               >
                 <motion.div
@@ -98,19 +94,24 @@ const Projects = () => {
                   transition={{ duration: 1 }}
                   className="flex justify-center items-center w-full lg:w-1/4"
                 >
-                  <a
+                  <motion.a
+                    initial={{ y: 20, opacity: 0 }}
+                    whileInView={{ y: 0, opacity: 1 }}
+                    transition={{ duration: 0.5, delay: index * 0.1 }}
                     href={project.url}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="hover:scale-105 transition-transform"
+                    aria-label={`Visit ${project.title} project`}
                   >
                     <img
                       src={project.image}
-                      alt={project.title}
+                      alt={`${project.title} project screenshot`}
                       className="mb-6 rounded w-[150px] h-[120px] object-cover shadow-lg"
                       loading="lazy"
+                      decoding="async"
                     />
-                  </a>
+                  </motion.a>
                 </motion.div>
                 <motion.div
                   initial={{ x: 100, opacity: 0 }}
@@ -130,20 +131,21 @@ const Projects = () => {
                     {project.description}
                   </p>
                   <div className="flex flex-wrap gap-2">
-                    {project.technologies.map((tech, index) => (
+                    {project.technologies.map((tech, techIndex) => (
                       <motion.button
-                        key={index}
+                        key={techIndex}
                         onClick={() => setSelectedTech(tech)}
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
                         className="mr-2 mt-4 rounded bg-neutral-800 dark:bg-neutral-900 px-3 py-1 text-sm font-medium text-yellow-200 hover:bg-neutral-700 dark:hover:bg-neutral-800 transition cursor-pointer"
+                        aria-label={`Filter projects by ${tech}`}
                       >
                         {tech}
                       </motion.button>
                     ))}
                   </div>
                 </motion.div>
-              </motion.div>
+              </article>
             ))}
           </motion.div>
         ) : (
@@ -156,7 +158,7 @@ const Projects = () => {
           </motion.div>
         )}
       </AnimatePresence>
-    </div>
+    </section>
   );
 };
 

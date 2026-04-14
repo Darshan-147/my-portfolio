@@ -3,10 +3,7 @@ import { motion } from "framer-motion";
 
 const Experience = () => {
   return (
-    <div
-      id="experience"
-      className="border-b-2 border-neutral-300 dark:border-neutral-900 pb-4"
-    >
+    <section id="experience" className="border-b-2 border-neutral-500 pb-4">
       <motion.div
         initial={{ y: -100, opacity: 0 }}
         whileInView={{ y: 0, opacity: 1 }}
@@ -25,7 +22,10 @@ const Experience = () => {
       </motion.div>
       <div>
         {EXPERIENCES.map((experience, index) => (
-          <div key={index} className="mb-8 flex flex-wrap lg:justify-center">
+          <article
+            key={index}
+            className="mb-8 flex flex-wrap lg:justify-center"
+          >
             <motion.div
               initial={{ x: -100, opacity: 0 }}
               whileInView={{ x: 0, opacity: 1 }}
@@ -51,7 +51,7 @@ const Experience = () => {
                   href={experience.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-sm text-purple-600 dark:text-purple-100"
+                  className="text-sm text-purple-600 dark:text-purple-100 hover:underline"
                 >
                   {experience.company}
                 </a>
@@ -59,19 +59,21 @@ const Experience = () => {
               <p className="mb-4 text-neutral-600 dark:text-neutral-400">
                 {experience.description}
               </p>
-              {experience.technologies.map((tech, index) => (
-                <span
-                  key={index}
-                  className="mr-2 mt-4 rounded bg-neutral-800 dark:bg-neutral-900 px-2 py-1 text-sm font-medium text-yellow-200"
-                >
-                  {tech}
-                </span>
-              ))}
+              <div className="flex flex-wrap gap-2">
+                {experience.technologies.map((tech, techIndex) => (
+                  <span
+                    key={techIndex}
+                    className="mr-2 mt-4 rounded bg-neutral-800 dark:bg-neutral-900 px-2 py-1 text-sm font-medium text-yellow-200"
+                  >
+                    {tech}
+                  </span>
+                ))}
+              </div>
             </motion.div>
-          </div>
+          </article>
         ))}
       </div>
-    </div>
+    </section>
   );
 };
 

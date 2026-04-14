@@ -24,11 +24,14 @@ const Navbar = () => {
     window.history.pushState(null, "", `/#${id}`);
   };
   return (
-    <nav className="flex items-center justify-between py-6 px-12 fixed top-0 left-0 right-0 z-50 bg-white dark:bg-black border-b border-neutral-200 dark:border-neutral-800">
+    <nav className="flex items-center justify-between py-6 mx-3 md:mx-20 fixed top-0 left-0 right-0 z-50 bg-white dark:bg-black border-b border-neutral-500">
       {/* Logo (left side) */}
       <div
-        className="w-16 cursor-pointer flex flex-shrink-0 items-center"
+        className="w-10 md:w-16 cursor-pointer flex flex-shrink-0 items-center"
         onClick={handleScrollToTop}
+        role="button"
+        tabIndex={0}
+        onKeyDown={(e) => e.key === "Enter" && handleScrollToTop()}
       >
         <motion.img
           src={nameLogo}
@@ -39,8 +42,12 @@ const Navbar = () => {
           }}
           transition={{ duration: 0.6 }}
           className="rounded-lg"
-          alt="logo"
-        ></motion.img>
+          alt="Darshan Soni Logo - Home"
+          width="64"
+          height="64"
+          loading="lazy"
+          decoding="async"
+        />
       </div>
 
       {/* Center Navigation */}
@@ -67,18 +74,18 @@ const Navbar = () => {
           target="_blank"
           rel="noopener noreferrer"
           className="text-neutral-900 dark:text-neutral-300 hover:text-blue-500 transition-colors"
-          aria-label="LinkedIn"
+          aria-label="LinkedIn Profile"
         >
-          <FaLinkedin size={24} />
+          <FaLinkedin size={24} aria-hidden="true" />
         </a>
         <a
           href="https://github.com/Darshan-147"
           target="_blank"
           rel="noopener noreferrer"
           className="text-neutral-900 dark:text-neutral-300 hover:text-gray-600 dark:hover:text-gray-400 transition-colors"
-          aria-label="GitHub"
+          aria-label="GitHub Profile"
         >
-          <FaGithub size={24} />
+          <FaGithub size={24} aria-hidden="true" />
         </a>
       </div>
     </nav>

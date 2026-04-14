@@ -9,7 +9,7 @@ const animation1 = (delay) => ({
 
 const Hero = () => {
   return (
-    <div className="border-b-2 border-neutral-300 dark:border-neutral-900 pb-4">
+    <section id="hero" className="border-b-2 border-neutral-500 pb-4">
       <div className="flex flex-wrap justify-center lg:justify-between">
         <div className="w-full lg:w-1/2">
           <div className="flex flex-col items-center lg:items-start">
@@ -22,14 +22,14 @@ const Hero = () => {
               Darshan Soni
             </motion.h1>
 
-            <motion.span
+            <motion.h2
               variants={animation1(0.5)}
               initial="hidden"
               whileInView="visible"
               className="bg-gradient-to-r from-pink-300 via-slate-500 to-purple-500 bg-clip-text text-4xl tracking-tight text-transparent"
             >
               Full Stack Developer
-            </motion.span>
+            </motion.h2>
 
             <motion.p
               variants={animation1(1)}
@@ -41,7 +41,7 @@ const Hero = () => {
             </motion.p>
           </div>
         </div>
-        <div className="flex items-center w-64 lg:w-1/3 lg:ml-32 lg:p-4">
+        <div className="flex items-center w-64 lg:w-1/4 lg:ml-32 lg:p-4">
           <motion.div
             initial={{ x: 100, opacity: 0 }}
             whileInView={{
@@ -52,14 +52,15 @@ const Hero = () => {
           >
             <img
               src={profilePic}
-              alt="Darshan Soni"
+              alt="Darshan Soni - Full Stack Developer"
               decoding="async"
+              loading="lazy"
               className="rounded-2xl"
             />
           </motion.div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

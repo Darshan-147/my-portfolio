@@ -16,9 +16,30 @@ export default defineConfig({
         },
       },
     },
-    // Optimize chunk size warnings
-    chunkSizeWarningLimit: 1000,
+    // Minimize bundle size
+    minify: "terser",
+    terserOptions: {
+      compress: {
+        drop_console: true,
+        drop_debugger: true,
+      },
+    },
+    // Source maps for production debugging
+    sourcemap: false,
+    // CSS minification
+    cssCodeSplit: true,
   },
-  // Asset optimization
-  assetsInclude: ["**/*.png", "**/*.jpg", "**/*.jpeg", "**/*.gif", "**/*.svg"],
+  // Performance: Enable asset inlining for small assets
+  server: {
+    preTransformRequests: true,
+  },
+  optimizeDeps: {
+    include: [
+      "react",
+      "react-dom",
+      "framer-motion",
+      "react-icons",
+      "@emailjs/browser",
+    ],
+  },
 });

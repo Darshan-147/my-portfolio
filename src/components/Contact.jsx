@@ -44,10 +44,7 @@ const Contact = () => {
   };
 
   return (
-    <div
-      id="contact"
-      className="border-b-2 border-neutral-300 dark:border-neutral-900 pb-16"
-    >
+    <section id="contact" className="border-b-2 border-neutral-500 pb-16">
       <motion.h2
         initial={{ y: -100, opacity: 0 }}
         whileInView={{ y: 0, opacity: 1 }}
@@ -88,15 +85,16 @@ const Contact = () => {
         initial={{ opacity: 0, y: 100 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
-        className="max-w-lg mx-auto flex flex-col gap-4 p-6 rounded-xl bg-neutral-100 dark:bg-neutral-900 dark:bg-opacity-50 shadow-lg border border-neutral-300 dark:border-neutral-800"
+        className="max-w-lg mx-auto flex flex-col gap-4 p-6 rounded-xl bg-neutral-100 dark:bg-neutral-900 dark:bg-opacity-50 shadow-lg border border-neutral-500"
         autoComplete="off"
+        aria-label="Contact form"
       >
         <div>
           <label
             htmlFor="name"
-            className="text-sm text-neutral-700 dark:text-neutral-400 mb-1 block"
+            className="text-sm text-neutral-700 dark:text-neutral-400 mb-1 block font-medium"
           >
-            Name
+            Name <span aria-label="required">*</span>
           </label>
           <input
             type="text"
@@ -104,6 +102,7 @@ const Contact = () => {
             name="name"
             placeholder="Your Name"
             required
+            aria-required="true"
             className="w-full px-4 py-2 rounded bg-white dark:bg-neutral-800 text-neutral-900 dark:text-white outline-none focus:ring-2 focus:ring-purple-500 transition"
           />
         </div>
@@ -111,9 +110,9 @@ const Contact = () => {
         <div>
           <label
             htmlFor="email"
-            className="text-sm text-neutral-700 dark:text-neutral-400 mb-1 block"
+            className="text-sm text-neutral-700 dark:text-neutral-400 mb-1 block font-medium"
           >
-            Email
+            Email <span aria-label="required">*</span>
           </label>
           <input
             type="email"
@@ -121,6 +120,7 @@ const Contact = () => {
             name="email"
             placeholder="Your Email"
             required
+            aria-required="true"
             className="w-full px-4 py-2 rounded bg-white dark:bg-neutral-800 text-neutral-900 dark:text-white outline-none focus:ring-2 focus:ring-purple-500 transition"
           />
         </div>
@@ -133,14 +133,15 @@ const Contact = () => {
             minute: "2-digit",
           })}
           hidden
+          aria-hidden="true"
         />
 
         <div>
           <label
             htmlFor="message"
-            className="text-sm text-neutral-700 dark:text-neutral-400 mb-1 block"
+            className="text-sm text-neutral-700 dark:text-neutral-400 mb-1 block font-medium"
           >
-            Message
+            Message <span aria-label="required">*</span>
           </label>
           <textarea
             id="message"
@@ -148,8 +149,9 @@ const Contact = () => {
             rows="5"
             placeholder="Your Message"
             required
+            aria-required="true"
             className="w-full px-4 py-2 rounded bg-white dark:bg-neutral-800 text-neutral-900 dark:text-white outline-none focus:ring-2 focus:ring-purple-500 transition resize-none"
-          ></textarea>
+          />
         </div>
 
         <motion.button
@@ -158,10 +160,14 @@ const Contact = () => {
           type="submit"
           disabled={loading}
           className="py-3 rounded bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 disabled:opacity-50 transition text-white font-semibold"
+          aria-busy={loading}
         >
           {loading ? (
             <span className="flex items-center justify-center gap-2">
-              <span className="animate-spin">⏳</span> Sending...
+              <span className="animate-spin" aria-hidden="true">
+                ⏳
+              </span>{" "}
+              Sending...
             </span>
           ) : (
             "Send Message"
@@ -173,6 +179,8 @@ const Contact = () => {
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             className="text-center text-green-400 font-semibold"
+            role="status"
+            aria-live="polite"
           >
             ✅ Message sent successfully! I'll reply soon.
           </motion.p>
@@ -183,12 +191,14 @@ const Contact = () => {
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             className="text-center text-red-400 font-semibold"
+            role="alert"
+            aria-live="assertive"
           >
             ❌ Failed to send message. Please try again.
           </motion.p>
         )}
       </motion.form>
-    </div>
+    </section>
   );
 };
 

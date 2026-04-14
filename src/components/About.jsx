@@ -4,10 +4,7 @@ import { motion } from "framer-motion";
 
 const About = () => {
   return (
-    <div
-      id="about"
-      className="border-b-2 border-neutral-300 dark:border-neutral-900 pb-4"
-    >
+    <section id="about" className="border-b-2 border-neutral-500 pb-4">
       <motion.div
         initial={{ y: -100, opacity: 0 }}
         whileInView={{ y: 0, opacity: 1 }}
@@ -30,14 +27,15 @@ const About = () => {
           initial={{ x: -100, opacity: 0 }}
           whileInView={{ x: 0, opacity: 1 }}
           transition={{ duration: 1 }}
-          className="w-64 lg:w-1/3 lg:p-8"
+          className="w-64 lg:w-1/4 lg:p-8"
         >
           <div className="flex items-center justify-center">
             <img
               className="rounded-2xl"
               src={aboutPic}
-              alt="about"
+              alt="Darshan Soni - Full Stack Developer"
               loading="lazy"
+              decoding="async"
             />
           </div>
         </motion.div>
@@ -53,7 +51,7 @@ const About = () => {
           </div>
         </motion.div>
       </div>
-    </div>
+    </section>
   );
 };
 
