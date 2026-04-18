@@ -3,11 +3,66 @@ import { motion } from "framer-motion";
 import emailjs from "@emailjs/browser";
 import { CONTACT } from "../constants";
 
+// Valid email domain whitelist for popular email providers
+const VALID_EMAIL_DOMAINS = [
+  "gmail.com",
+  "yahoo.com",
+  "hotmail.com",
+  "outlook.com",
+  "protonmail.com",
+  "icloud.com",
+  "mail.com",
+  "zoho.com",
+  "aol.com",
+  "yandex.com",
+  "gmx.com",
+  "tutanota.com",
+  "fastmail.com",
+  "mailbox.org",
+  "posteo.de",
+];
+
+// Valid educational and organizational TLDs
+const VALID_TLDS = [
+  ".edu",
+  ".ac.in",
+  ".ac.uk",
+  ".ac.nz",
+  ".ac.jp",
+  ".edu.in",
+  ".edu.br",
+  ".edu.au",
+  ".org.in",
+  ".gov.in",
+  ".ac.id",
+  ".ac.kr",
+  ".edu.sg",
+];
+
+// Validation function for email domain
+const validateEmailDomain = (email) => {
+  if (!email) return false;
+  const domain = email.split("@")[1]?.toLowerCase();
+  if (!domain) return false;
+
+  // Check if it's in the popular/whitelisted domains list
+  if (VALID_EMAIL_DOMAINS.includes(domain)) return true;
+
+  // Check if domain ends with a valid educational/organizational TLD
+  for (const tld of VALID_TLDS) {
+    if (domain.endsWith(tld)) return true;
+  }
+
+  // Reject all other domains (including random ones like nhgf@gfd.com)
+  return false;
+};
+
 const Contact = () => {
   const formRef = useRef();
   const [loading, setLoading] = useState(false);
   const [done, setDone] = useState(false);
   const [error, setError] = useState(false);
+  const [emailError, setEmailError] = useState("");
 
   // Initialize EmailJS
   useEffect(() => {
@@ -16,9 +71,22 @@ const Contact = () => {
 
   const sendEmail = (e) => {
     e.preventDefault();
-    setLoading(true);
+    setEmailError("");
     setError(false);
     setDone(false);
+
+    // Get email value from form
+    const email = formRef.current.email.value;
+
+    // Validate email domain
+    if (!validateEmailDomain(email)) {
+      setEmailError(
+        "Please use a valid email domain (Gmail, Yahoo, Outlook, ProtonMail, etc.)"
+      );
+      return;
+    }
+
+    setLoading(true);
 
     emailjs
       .sendForm(
@@ -31,6 +99,7 @@ const Contact = () => {
         () => {
           setDone(true);
           formRef.current.reset();
+          setEmailError("");
           // Hide success message after 5 seconds
           setTimeout(() => setDone(false), 5000);
         },
@@ -121,8 +190,25 @@ const Contact = () => {
             placeholder="Your Email"
             required
             aria-required="true"
-            className="w-full px-4 py-2 rounded bg-white dark:bg-neutral-800 text-neutral-900 dark:text-white outline-none focus:ring-2 focus:ring-purple-500 transition"
+            onBlur={(e) => {
+              if (e.target.value && !validateEmailDomain(e.target.value)) {
+                setEmailError(
+                  "Please use a valid email domain (Gmail, Yahoo, Outlook, ProtonMail, etc.)"
+                );
+              } else {
+                setEmailError("");
+              }
+            }}
+            onChange={() => setEmailError("")}
+            className={`w-full px-4 py-2 rounded bg-white dark:bg-neutral-800 text-neutral-900 dark:text-white outline-none focus:ring-2 transition ${
+              emailError
+                ? "focus:ring-red-500 border-2 border-red-500"
+                : "focus:ring-purple-500"
+            }`}
           />
+          {emailError && (
+            <p className="text-red-500 text-sm mt-1 font-medium">{emailError}</p>
+          )}
         </div>
 
         <input

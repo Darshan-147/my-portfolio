@@ -35,6 +35,7 @@ const Navbar = () => {
       >
         <motion.img
           src={nameLogo}
+          initial={{ rotate: 0, scale: 1, filter: "drop-shadow(0 0 0px rgba(255,255,255,0))" }}
           whileHover={{
             rotate: 360,
             scale: 0.2,
