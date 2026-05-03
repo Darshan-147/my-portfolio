@@ -1,8 +1,8 @@
-import scheduleX from "../assets/projects/scheduleX.png";
-import myPortfolio from "../assets/projects/myPortfolio.png";
-import Xpense from "../assets/projects/Xpense.png";
-import restReservation from "../assets/projects/restaurantReservation.png";
-import UberClone from "../assets/projects/UberClone.png";
+import scheduleX from "../assets/images/projects/scheduleX.png";
+import myPortfolio from "../assets/images/projects/myPortfolio.png";
+import Xpense from "../assets/images/projects/Xpense.png";
+import restReservation from "../assets/images/projects/restaurantReservation.png";
+import UberClone from "../assets/images/projects/UberClone.png";
 
 export const HERO_CONTENT = `I am a passionate full stack developer with a knack for crafting robust and scalable web applications. I have honed my skills in front-end technologies like React, Vue, HTML and CSS as well as back-end technologies like Node.js, MySQL and MongoDB. My goal is to leverage my expertise to create innovative solutions that drive business growth and deliver exceptional user experiences.`;
 
@@ -72,7 +72,7 @@ export const EXPERIENCES = [
     company: "V2Solutions",
     url: "https://www.v2solutions.com/",
     description: `Worked for a No. 1 America's retail mortgage company as a frontend developer on VueJS. Improved frontend performance by ~20% by refactoring components and optimizing state management. Reduced UI defects by ~30% by integrating QA validation early in development lifecycle.`,
-    technologies: ["Vue","GenAI"],
+    technologies: ["Vue", "GenAI"],
   },
   {
     year: "May 2024 ~ July 2024",
@@ -125,6 +125,32 @@ export const PROJECTS = [
       "This tracker keeps the track of user's expenses and provides weekly, monthly as well as yearly analysis via charts.",
     technologies: ["HTML", "CSS", "JavaScript", "Django", "SQL"],
     url: "https://github.com/Darshan-147/Expense-Tracker",
+  },
+];
+
+export const ACHIEVEMENTS = [
+  {
+    title: "Top 5 / 125 teams in Ingenious Hackathon 6.0",
+    date: "March 2025",
+    image: "/src/assets/images/achievements/hackathon.jpeg",
+    description:
+      "Built a full-stack ML platform to assess farmer loan eligibility using real-world inputs by integrating an XGBoost model via a Flask API for real-time predictions. Developed a multilingual UI (6+ languages) to improve accessibility and usability. Designed a domain-specific chatbot with text-to-speech support.",
+  },
+  {
+    title: "1st Runner-Up – YMCA Chess Championship ",
+    date: "2023",
+    image: "/src/assets/images/achievements/chess.jpg",
+  },
+  {
+    title: 'Recognized as the "Top Web Development Voice" on LinkedIn (2×)',
+    date: "August 2024, November 2024",
+    image: "src/assets/images/achievements/top_web_dev_voice.png",
+  },
+  {
+    title: "Merit-Cum-Means UG Scholar (2x)",
+    date: "2022",
+    description: "Earned 25% of the 4-year tuition fee.",
+    image: "/src/assets/images/achievements/",
   },
 ];
 

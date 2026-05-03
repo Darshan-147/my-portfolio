@@ -118,6 +118,7 @@ const Contact = () => {
         initial={{ y: -100, opacity: 0 }}
         whileInView={{ y: 0, opacity: 1 }}
         transition={{ duration: 1.5 }}
+        viewport={{ once: true }}
         className="my-20 text-center text-4xl"
       >
         Let's Discuss Ideas Together
@@ -129,6 +130,7 @@ const Contact = () => {
           initial={{ x: -200, opacity: 0 }}
           whileInView={{ x: 0, opacity: 1 }}
           transition={{ duration: 1 }}
+          viewport={{ once: true }}
           className="text-neutral-600 dark:text-neutral-300"
         >
           {CONTACT.phone_number}
@@ -137,6 +139,7 @@ const Contact = () => {
           initial={{ x: 200, opacity: 0 }}
           whileInView={{ x: 0, opacity: 1 }}
           transition={{ duration: 1, delay: 0.5 }}
+          viewport={{ once: true }}
         >
           <a
             href={`mailto:${CONTACT.email}`}
@@ -154,6 +157,7 @@ const Contact = () => {
         initial={{ opacity: 0, y: 100 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
+        viewport={{ once: true }}
         className="max-w-lg mx-auto flex flex-col gap-4 p-6 rounded-xl bg-neutral-100 dark:bg-neutral-900 dark:bg-opacity-50 shadow-lg border border-neutral-500"
         autoComplete="off"
         aria-label="Contact form"

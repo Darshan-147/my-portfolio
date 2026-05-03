@@ -17,6 +17,7 @@ const Hero = () => {
               variants={animation1(0)}
               initial="hidden"
               whileInView="visible"
+              viewport={{ once: true }}
               className="pb-16 text-6xl font-extralight tracking-tight lg:mt-16 lg:text-7xl"
             >
               Darshan Soni
@@ -26,6 +27,7 @@ const Hero = () => {
               variants={animation1(0.5)}
               initial="hidden"
               whileInView="visible"
+              viewport={{ once: true }}
               className="bg-gradient-to-r from-pink-300 via-slate-500 to-purple-500 bg-clip-text text-4xl tracking-tight text-transparent"
             >
               Full Stack Developer
@@ -35,7 +37,8 @@ const Hero = () => {
               variants={animation1(1)}
               initial="hidden"
               whileInView="visible"
-              className="my-2 max-w-xl py-6 font-light"
+              viewport={{ once: true }}
+              className="my-2 max-w-xl py-6 font-light text-justify"
             >
               {HERO_CONTENT}
             </motion.p>
@@ -49,6 +52,7 @@ const Hero = () => {
               opacity: 1,
               transition: { duration: 1, delay: 1.2 },
             }}
+            viewport={{ once: true }}
           >
             <img
               src={profilePic}

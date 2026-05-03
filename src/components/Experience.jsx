@@ -8,6 +8,7 @@ const Experience = () => {
         initial={{ y: -100, opacity: 0 }}
         whileInView={{ y: 0, opacity: 1 }}
         transition={{ duration: 1 }}
+        viewport={{ once: true }}
         className="relative my-20 text-center"
       >
         <h2 className="text-4xl">Experience</h2>
@@ -17,7 +18,7 @@ const Experience = () => {
           whileInView={{ scaleX: 1 }}
           transition={{ duration: 2, ease: "backIn" }}
           style={{ transformOrigin: "center" }}
-          viewport={{ amount: 0.6 }}
+          viewport={{ amount: 0.6, once: true }}
         />
       </motion.div>
       <div>
@@ -30,6 +31,7 @@ const Experience = () => {
               initial={{ x: -100, opacity: 0 }}
               whileInView={{ x: 0, opacity: 1 }}
               transition={{ duration: 1 }}
+              viewport={{ once: true }}
               className="w-full lg:w-1/4"
             >
               <p className="mb-2 text-md text-neutral-600 dark:text-neutral-400">
@@ -43,6 +45,7 @@ const Experience = () => {
               initial={{ x: 100, opacity: 0 }}
               whileInView={{ x: 0, opacity: 1 }}
               transition={{ duration: 1 }}
+              viewport={{ once: true }}
               className="w-full max-w-xl lg:w-3/4"
             >
               <h6 className="mb-2 font-semibold">
@@ -56,7 +59,7 @@ const Experience = () => {
                   {experience.company}
                 </a>
               </h6>
-              <p className="mb-4 text-neutral-600 dark:text-neutral-400">
+              <p className="mb-4 text-neutral-600 dark:text-neutral-400 text-justify">
                 {experience.description}
               </p>
               <div className="flex flex-wrap gap-2">

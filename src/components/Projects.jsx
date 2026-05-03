@@ -28,6 +28,7 @@ const Projects = () => {
         initial={{ y: -100, opacity: 0 }}
         whileInView={{ y: 0, opacity: 1 }}
         transition={{ duration: 1 }}
+        viewport={{ once: true }}
         className="relative my-20 text-center"
       >
         <h2 className="text-4xl">Projects</h2>
@@ -37,15 +38,16 @@ const Projects = () => {
           whileInView={{ scaleX: 1 }}
           transition={{ duration: 2, ease: "backIn" }}
           style={{ transformOrigin: "center" }}
-          viewport={{ amount: 0.6 }}
+          viewport={{ amount: 0.6, once: true }}
         />
       </motion.div>
 
-      {/* Tech Filter */}
+      {/* Technology Filter */}
       <motion.div
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ duration: 0.5 }}
+        viewport={{ once: true }}
         className="flex flex-wrap gap-2 justify-center mb-10 px-4"
       >
         <button
@@ -75,7 +77,7 @@ const Projects = () => {
         ))}
       </motion.div>
 
-      {/* Projects Grid */}
+      {/* Projects List */}
       <AnimatePresence>
         {filteredProjects.length > 0 ? (
           <motion.div
@@ -92,12 +94,14 @@ const Projects = () => {
                   initial={{ y: -100, opacity: 0 }}
                   whileInView={{ y: 0, opacity: 1 }}
                   transition={{ duration: 1 }}
+                  viewport={{ once: true }}
                   className="flex justify-center items-center w-full lg:w-1/4"
                 >
                   <motion.a
                     initial={{ y: 20, opacity: 0 }}
                     whileInView={{ y: 0, opacity: 1 }}
                     transition={{ duration: 0.5, delay: index * 0.1 }}
+                    viewport={{ once: true }}
                     href={project.url}
                     target="_blank"
                     rel="noopener noreferrer"
@@ -117,6 +121,7 @@ const Projects = () => {
                   initial={{ x: 100, opacity: 0 }}
                   whileInView={{ x: 0, opacity: 1 }}
                   transition={{ duration: 1 }}
+                  viewport={{ once: true }}
                   className="w-full max-w-xl lg:w-3/4"
                 >
                   <a
@@ -127,7 +132,7 @@ const Projects = () => {
                   >
                     {project.title}
                   </a>
-                  <p className="mb-4 text-neutral-600 dark:text-neutral-400 leading-relaxed">
+                  <p className="mb-4 text-neutral-600 dark:text-neutral-400 leading-relaxed text-justify">
                     {project.description}
                   </p>
                   <div className="flex flex-wrap gap-2">

@@ -9,6 +9,7 @@ const About = () => {
         initial={{ y: -100, opacity: 0 }}
         whileInView={{ y: 0, opacity: 1 }}
         transition={{ duration: 1 }}
+        viewport={{ once: true }}
         className="relative my-20 text-center"
       >
         <h2 className="text-4xl">About Me</h2>
@@ -18,7 +19,7 @@ const About = () => {
           whileInView={{ scaleX: 1 }}
           transition={{ duration: 2, ease: "backIn" }}
           style={{ transformOrigin: "center" }}
-          viewport={{ amount: 0.6 }}
+          viewport={{ amount: 0.6, once: true }}
         />
       </motion.div>
 
@@ -27,6 +28,7 @@ const About = () => {
           initial={{ x: -100, opacity: 0 }}
           whileInView={{ x: 0, opacity: 1 }}
           transition={{ duration: 1 }}
+          viewport={{ once: true }}
           className="w-64 lg:w-1/4 lg:p-8"
         >
           <div className="flex items-center justify-center">
@@ -44,10 +46,11 @@ const About = () => {
           initial={{ x: 100, opacity: 0 }}
           whileInView={{ x: 0, opacity: 1 }}
           transition={{ duration: 1 }}
+          viewport={{ once: true }}
           className="w-full lg:w-1/2"
         >
           <div className="flex justify-around lg:justify-start">
-            <p className="p-11">{ABOUT_TEXT}</p>
+            <p className="p-11 text-justify">{ABOUT_TEXT}</p>
           </div>
         </motion.div>
       </div>

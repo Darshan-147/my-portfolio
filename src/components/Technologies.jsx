@@ -49,6 +49,7 @@ const Technologies = () => {
         initial={{ y: -100, opacity: 0 }}
         whileInView={{ y: 0, opacity: 1 }}
         transition={{ duration: 1 }}
+        viewport={{ once: true }}
         className="relative my-20 text-center"
       >
         <h2 className="text-4xl">Technologies</h2>
@@ -58,13 +59,14 @@ const Technologies = () => {
           whileInView={{ scaleX: 1 }}
           transition={{ duration: 2, ease: "backIn" }}
           style={{ transformOrigin: "center" }}
-          viewport={{ amount: 0.6 }}
+          viewport={{ amount: 0.6, once: true }}
         />
       </motion.div>
       <motion.div
         initial={{ x: -100, opacity: 0 }}
         whileInView={{ x: 0, opacity: 1 }}
         transition={{ duration: 1.5 }}
+        viewport={{ once: true }}
         className="flex flex-wrap items-center justify-center gap-4"
       >
         {/* Technologies */}

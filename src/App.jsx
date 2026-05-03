@@ -10,6 +10,7 @@ const Technologies = lazy(() => import("./components/Technologies"));
 const Experience = lazy(() => import("./components/Experience"));
 const Projects = lazy(() => import("./components/Projects"));
 const Contact = lazy(() => import("./components/Contact"));
+const Achievements = lazy(() => import("./components/Achievements"));
 
 const App = () => {
   return (
@@ -58,6 +59,14 @@ const App = () => {
             }
           >
             <Projects />
+          </Suspense>
+
+          <Suspense
+            fallback={
+              <div className="h-96 animate-pulse bg-neutral-800 rounded-lg" />
+            }
+          >
+            <Achievements />
           </Suspense>
 
           <Suspense

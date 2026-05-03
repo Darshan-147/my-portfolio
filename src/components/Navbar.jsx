@@ -6,7 +6,14 @@ import { scrollToId, scrollToTop } from "../hooks/useScroll";
 import CVDownload from "./CVDownload";
 import ThemeToggle from "./ThemeToggle";
 
-const navLinks = ["about", "tech", "experience", "projects", "contact"];
+const navLinks = [
+  "about",
+  "tech",
+  "experience",
+  "projects",
+  "achievements",
+  "contact",
+];
 
 const Navbar = () => {
   const handleScrollToTop = () => {
@@ -35,7 +42,11 @@ const Navbar = () => {
       >
         <motion.img
           src={nameLogo}
-          initial={{ rotate: 0, scale: 1, filter: "drop-shadow(0 0 0px rgba(255,255,255,0))" }}
+          initial={{
+            rotate: 0,
+            scale: 1,
+            filter: "drop-shadow(0 0 0px rgba(255,255,255,0))",
+          }}
           whileHover={{
             rotate: 360,
             scale: 0.2,
@@ -58,7 +69,7 @@ const Navbar = () => {
             key={link}
             href={`#${link}`}
             onClick={(e) => handleNavClick(e, link)}
-            className="text-md text-neutral-900 dark:text-neutral-300 hover:text-purple-400 transition"
+            className="text-md text-neutral-900 dark:text-neutral-300 hover:text-purple-400 dark:hover:text-purple-400 transition"
           >
             {link.charAt(0).toUpperCase() + link.slice(1)}
           </a>
@@ -74,7 +85,7 @@ const Navbar = () => {
           href="https://www.linkedin.com/in/darshansoni26/"
           target="_blank"
           rel="noopener noreferrer"
-          className="text-neutral-900 dark:text-neutral-300 hover:text-blue-500 transition-colors"
+          className="text-neutral-900 dark:text-neutral-300 hover:text-blue-500 dark:hover:text-blue-500 transition-colors"
           aria-label="LinkedIn Profile"
         >
           <FaLinkedin size={24} aria-hidden="true" />
