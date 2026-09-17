@@ -59,9 +59,13 @@ const Experience = () => {
                   {experience.company}
                 </a>
               </h6>
-              <p className="mb-4 text-neutral-600 dark:text-neutral-400 text-justify">
-                {experience.description}
-              </p>
+              <ul className="mb-4 list-disc space-y-2 pl-5 text-neutral-600 dark:text-neutral-400">
+                {experience.description.map((point, pointIndex) => (
+                  <li key={pointIndex} className="text-justify">
+                    {point}
+                  </li>
+                ))}
+              </ul>
               <div className="flex flex-wrap gap-2">
                 {experience.technologies.map((tech, techIndex) => (
                   <span

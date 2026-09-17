@@ -67,19 +67,32 @@ export const TECHNOLOGIES = [
 
 export const EXPERIENCES = [
   {
-    year: "April 2025 ~ Present",
+    year: "April 2025 ~ August 2026",
     role: "Associate Software Engineer",
     company: "V2Solutions",
     url: "https://www.v2solutions.com/",
-    description: `Worked for a No. 1 America's retail mortgage company as a frontend developer on VueJS. Improved frontend performance by ~20% by refactoring components and optimizing state management. Reduced UI defects by ~30% by integrating QA validation early in development lifecycle.`,
-    technologies: ["Vue", "GenAI"],
+    description: [
+      "Worked as a frontend developer on Vue for America's No. 3 retail mortgage company. Improved frontend performance by ~20% by refactoring components and optimizing state management. Reduced UI defects by ~30% by integrating QA validation early in the development lifecycle.",
+
+      "Worked on building an AI Powered Error Monitoring platform where I implemented authentication and repository fetching using PATs and API tokens for version control and source code management platforms. Automated SCM error scans to fetch high-priority issues, create tickets, and manage pull requests.",
+    ],
+    technologies: [
+      "Vue",
+      "TypeScript",
+      "GenAI",
+      "React",
+      "JavaScript",
+      "FastAPI",
+    ],
   },
   {
     year: "May 2024 ~ July 2024",
     role: "Frontend Web Developer Intern",
     company: "Drop Techno Lab",
     url: "https://www.droptechnolab.com",
-    description: `I worked on various frontend web development functionalities for developing and designing more than 7 sections of different pages of websites. Gained hands-on experience with various CDNs and libraries that come handy when developing instant websites. For example, bootstrap’s ready-made classes for responsiveness, various carousel libraries such as slick slider for creating a slideshow gallery.`,
+    description: [
+      "Designed and developed 7+ responsive website sections across multiple pages. Integrated CDNs and third-party libraries to accelerate development and enhance website functionality. Leveraged Bootstrap utility classes to implement responsive and mobile-friendly layouts. Developed interactive slideshow galleries using carousel libraries such as Slick Slider.",
+    ],
     technologies: ["HTML", "CSS", "Bootstrap", "Javascript", "jQuery"],
   },
 ];

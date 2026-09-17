@@ -133,7 +133,9 @@ const Contact = () => {
           viewport={{ once: true }}
           className="text-neutral-600 dark:text-neutral-300"
         >
-          {CONTACT.phone_number}
+          <a href={`tel:${CONTACT.phone_number}`} className="hover:text-purple-600 dark:hover:text-purple-300 transition-colors">
+            {CONTACT.phone_number}
+          </a>
         </motion.p>
         <motion.p
           initial={{ x: 200, opacity: 0 }}
@@ -142,7 +144,9 @@ const Contact = () => {
           viewport={{ once: true }}
         >
           <a
-            href={`mailto:${CONTACT.email}`}
+            href={`https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(CONTACT.email)}`}
+            target="_blank"
+            rel="noopener noreferrer"
             className="border-b text-neutral-700 dark:text-neutral-300 hover:text-purple-600 dark:hover:text-purple-300 transition-colors"
           >
             {CONTACT.email}
