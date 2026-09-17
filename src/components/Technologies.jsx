@@ -1,9 +1,8 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { FaNodeJs } from "react-icons/fa";
+import { FaCss3Alt, FaNodeJs } from "react-icons/fa";
 import { RiReactjsLine } from "react-icons/ri";
 import {
-  SiCss3,
   SiExpress,
   SiHtml5,
   SiMongodb,
@@ -16,7 +15,7 @@ import "../index.css";
 
 const iconComponents = {
   html: <SiHtml5 />,
-  css: <SiCss3 />,
+  css: <FaCss3Alt />,
   mongodb: <SiMongodb />,
   express: <SiExpress />,
   react: <RiReactjsLine />,
