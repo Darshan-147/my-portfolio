@@ -10,6 +10,9 @@ import hackathonImage from "../assets/images/achievements/hackathon.jpeg";
 import chessImage from "../assets/images/achievements/chess.jpg";
 import topWebDevVoiceImage from "../assets/images/achievements/top_web_dev_voice.png";
 
+// Testimonial images
+import vijayShahImage from "../assets/images/testimonials/Vijay_Shah.png";
+
 export const HERO_CONTENT = `I am a passionate full stack developer with a knack for crafting robust and scalable web applications. I have honed my skills in front-end technologies like React, Vue, HTML and CSS as well as back-end technologies like Node.js, MySQL and MongoDB. My goal is to leverage my expertise to create innovative solutions that drive business growth and deliver exceptional user experiences.`;
 
 export const ABOUT_TEXT = `I am a dedicated and versatile full stack developer with a passion for creating efficient and user-friendly web applications. I have worked with a variety of technologies, including React, Vue, Node.js, MySQL, and MongoDB. My journey in web development began with a deep curiosity for how things work, and it has evolved into a career where I continuously strive to learn and adapt to new challenges. Outside of coding, I enjoy playing keyboard, going out on solo chai dates and yeah, chess is my favourite.`;
@@ -170,6 +173,20 @@ export const ACHIEVEMENTS = [
     date: "2022",
     description: "Earned 25% of the 4-year tuition fee.",
     image: "",
+  },
+];
+
+export const TESTIMONIALS = [
+  {
+    id: "vijay-shah",
+    name: "Vijay Shah",
+    designation: "CEO, V2Solutions",
+    image: vijayShahImage,
+    quote: [
+      "Darshan joined V2Solutions straight out of college, and over the year he was with us, I got to know him personal, not just through updates from his manager, but through real conversations. What stood out to me first was his curiosity. He asked good questions, wanted to understand why something mattered and not just what needed to get done, and picked things up fast. That's hard to teach.",
+      "He is also diligent. He shows up and does the work, consistently, without needing to be managed or reminded. That's rare this early in a career, and it's why people trusted him with real responsibility so quickly.",
+      "Beyond the work itself, what stayed with me was his character: respectful, easy to work with, the kind of person who makes a team better just by being part of it. I recommend Darshan without hesitation.",
+    ],
   },
 ];
 

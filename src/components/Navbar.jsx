@@ -12,6 +12,7 @@ const navLinks = [
   "experience",
   "projects",
   "achievements",
+  "testimonials",
   "contact",
 ];
 
